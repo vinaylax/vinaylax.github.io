@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience — Vinay Lakshman</title>
+  <meta name="description" content="Vinay Lakshman's 20+ year career spanning Arthur Andersen, KPMG, Thoratec, Rane, and ISU." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .exp-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .exp-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .exp-filter-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--color-text-light);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .exp-summary-card {
+      background: var(--color-bg-alt);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+    .exp-summary-card h4 { margin-bottom: 16px; font-size: 1rem; }
+    .summary-stat { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--color-border); }
+    .summary-stat:last-child { border-bottom: none; }
+    .summary-stat .label { font-size: 0.85rem; color: var(--color-text-light); }
+    .summary-stat .value { font-size: 0.9rem; font-weight: 600; color: var(--color-primary); }
+    .skills-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .skill-pill {
+      font-size: 0.75rem; padding: 5px 12px; border-radius: 20px;
+      background: rgba(74, 144, 217, 0.1); color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    /* Timeline enhanced */
+    .timeline-section { background: var(--color-bg); }
+    .timeline-enhanced { position: relative; }
+    .timeline-enhanced::before {
+      content: ''; position: absolute; left: 0; top: 0;
+      width: 2px; height: 100%;
+      background: linear-gradient(to bottom, var(--color-accent), var(--color-gold), var(--color-border));
+    }
+    .tl-item {
+      position: relative;
+      padding-left: 52px;
+      padding-bottom: 56px;
+    }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute; left: -8px; top: 6px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--color-accent);
+      border: 3px solid var(--color-bg);
+      box-shadow: 0 0 0 2px var(--color-accent);
+    }
+    .tl-item.current .tl-dot { background: var(--color-gold); box-shadow: 0 0 0 2px var(--color-gold); }
+    .tl-item.philosophy .tl-dot { background: #9b59b6; box-shadow: 0 0 0 2px #9b59b6; }
+    .tl-date {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--color-accent); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .tl-item.current .tl-date { color: var(--color-gold); }
+    .tl-item.philosophy .tl-date { color: #9b59b6; }
+    .tl-location {
+      font-size: 0.8rem; color: var(--color-text-light);
+      background: var(--color-bg-alt); padding: 2px 10px;
+      border-radius: 12px; display: inline-block;
+    }
+    .tl-card {
+      background: #fff; border: 1px solid var(--color-border);
+      border-radius: 12px; padding: 28px 32px; margin-top: 12px;
+      transition: all var(--transition);
+    }
+    .tl-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); transform: translateX(4px); }
+    .tl-card h3 { font-size: 1.2rem; margin-bottom: 4px; }
+    .tl-company { font-weight: 600; color: var(--color-accent); font-size: 0.95rem; margin-bottom: 16px; display: block; }
+    .tl-item.current .tl-company { color: var(--color-gold); }
+    .tl-item.philosophy .tl-company { color: #9b59b6; }
+    .tl-card p { color: var(--color-text-light); font-size: 0.93rem; margin-bottom: 12px; }
+    .tl-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .tl-bullets li {
+      font-size: 0.92rem; color: var(--color-text-light);
+      padding-left: 18px; position: relative; line-height: 1.6;
+    }
+    .tl-bullets li::before {
+      content: '→'; position: absolute; left: 0;
+      color: var(--color-accent); font-size: 0.8rem; top: 2px;
+    }
+    .tl-item.current .tl-bullets li::before { color: var(--color-gold); }
+    .tl-item.philosophy .tl-bullets li::before { color: #9b59b6; }
+    .tl-sub-roles { margin-bottom: 12px; }
+    .tl-sub-role { font-size: 0.85rem; color: var(--color-text-light); padding: 4px 0; }
+    .tl-sub-role strong { color: var(--color-text); }
+    .achievement-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(201, 168, 76, 0.1); color: #8a6d10;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      font-size: 0.78rem; font-weight: 600; padding: 4px 12px;
+      border-radius: 20px; margin-top: 12px;
+    }
+
+    @media (max-width: 968px) {
+      .exp-layout { grid-template-columns: 1fr; gap: 40px; }
+      .exp-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">VL<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experience.html" class="active">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Career Journey</span>
+      <h1>27 Years. Four Continents. One Direction.</h1>
+      <p>From Arthur Andersen in Madras to ISU in Strasbourg — a career arc shaped by ambition, rigour, and an unending curiosity about the cosmos.</p>
+    </div>
+  </div>
+
+  <!-- Experience Main -->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="exp-layout">
+
+        <!-- Sidebar -->
+        <div class="exp-sidebar fade-in">
+          <div class="exp-summary-card">
+            <h4>Career at a Glance</h4>
+            <div class="summary-stat"><span class="label">Years of Experience</span><span class="value">20+</span></div>
+            <div class="summary-stat"><span class="label">Industries</span><span class="value">5</span></div>
+            <div class="summary-stat"><span class="label">Countries</span><span class="value">India · USA · Europe</span></div>
+            <div class="summary-stat"><span class="label">Largest Team Led</span><span class="value">Executive Board</span></div>
+            <div class="summary-stat"><span class="label">Revenue Led</span><span class="value">€56M+</span></div>
+            <div class="summary-stat"><span class="label">Audit Clients</span><span class="value">Up to $60B</span></div>
+          </div>
+
+          <div class="exp-summary-card">
+            <h4>Core Skills</h4>
+            <div class="skills-list">
+              <span class="skill-pill">Strategic Planning</span>
+              <span class="skill-pill">Financial Governance</span>
+              <span class="skill-pill">Risk Management</span>
+              <span class="skill-pill">P&L Leadership</span>
+              <span class="skill-pill">Internal Audit</span>
+              <span class="skill-pill">ERP Implementation</span>
+              <span class="skill-pill">M&A / Due Diligence</span>
+              <span class="skill-pill">Space Economics</span>
+              <span class="skill-pill">Space Policy & Law</span>
+              <span class="skill-pill">Entrepreneurship</span>
+              <span class="skill-pill">Tax Structuring</span>
+              <span class="skill-pill">Market Entry</span>
+              <span class="skill-pill">Operations</span>
+              <span class="skill-pill">R&D Investment</span>
+              <span class="skill-pill">ESG / Sustainability</span>
+              <span class="skill-pill">Philosophy</span>
+            </div>
+          </div>
+
+          <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;">Open to Opportunities</a>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-enhanced">
+
+          <!-- ISU -->
+          <div class="tl-item current fade-in">
+            <div class="tl-dot"></div>
+            <div class="tl-date">
+              Sep 2025 – Jul 2026
+              <span class="tl-location">📍 Strasbourg, France</span>
+            </div>
+            <div class="tl-card">
+              <h3>Master of Space Studies (MSS)</h3>
+              <span class="tl-company">International Space University (ISU)</span>
+              <ul class="tl-bullets">
+                <li>Specialising in Space Entrepreneurship, Economics, Commercial Space Strategy, Policy & Law.</li>
+                <li>Team Project: Global Communication Strategy for Deep Space Exploration.</li>
+                <li>Individual Research: <em>Impact of Philosophy &amp; Theology on Space Exploration in the 21st Century</em> — an interdisciplinary examination of how philosophical and theological frameworks shape humanity's approach to space.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Enginecal -->
+          <div class="tl-item fade-in">
+            <div class="tl-dot"></div>
+            <div class="tl-date">
+              Jan 2023 – Present
+              <span class="tl-location">📍 India</span>
+            </div>
+            <div class="tl-card">
+              <h3>Investor Board Member</h3>
+              <span class="tl-company">Enginecal Private Limited (Start-up)</span>
+              <ul class="tl-bullets">
+                <li>Exploring SATCOM-based Over-the-Air (OTA) update architecture for the automotive sector — a direct bridge between space technology and mobility.</li>
+                <li>Creating high-value impact in the mobility ecosystem using deep vehicle analytics and automotive AI.</li>
+                <li>Developing connected car ecosystems for safe, clean, and efficient motoring.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Philosophy -->
+          <div class="tl-item philosophy fade-in">
+            <div class="tl-dot"></div>
+            <div class="tl-date">
+              Jan 2020 – Jul 2022
+              <span class="tl-location">📍 India</span>
+            </div>
+            <div class="tl-card">
+              <h3>Study of Indian Philosophy of Non-Duality</h3>
+              <span class="tl-company">Arsha Vidya Gurukulam</span>
+              <ul class="tl-bullets">
+                <li>Completed a structured two-year immersion in Vedantic philosophy with emphasis on logic, ethics, and analytical clarity.</li>
+                <li>Strengthened reflective, values-based decision-making and enhanced critical thinking for systems-level leadership.</li>
+                <li>This philosophical foundation now underpins research on the convergence of philosophy and space exploration.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Rane CEO -->
+          <div class="tl-item fade-in">
+            <div class="tl-dot"></div>
+            <div class="tl-date">
+              Sep 2014 – Jan 2020
+              <span class="tl-location">📍 Chennai, India</span>
+            </div>
+            <div class="tl-card">
+              <h3>CEO &amp; Managing Director</h3>
+              <span class="tl-company">Rane Brake Lining Limited (Public Listed, BSE/NSE)</span>
+              <p>Led the executive team of a publicly listed automotive component manufacturer, delivering measurable transformation across revenue, profitability, sustainability, quality, and culture over five years.</p>
+              <ul class="tl-bullets">
+                <li>Grew revenue from <strong>€44M to €56M</strong> — a 27% increase.</li>
+                <li>Doubled PBT from 5% to 10%, increasing PAT from €1.8M to €2.2M.</li>
+                <li>Drove R&amp;D investment from <strong>2.5% to 8.5% of sales</strong> — a 3.4× increase, positioning the company as an innovation leader in its segment.</li>
+                <li>Increased renewable energy mix from 18% to 40%, reducing power cost from 6.5% to 5% of revenue.</li>
+                <li>Implemented an enhanced Quality Control System resulting in re-certification of the <strong>Deming Grand Prize</strong> from JUSE, Japan — one of the world's most prestigious quality awards.</li>
+                <li>Launched work-life balance initiatives leading to recognition as a <strong>Great Place to Work</strong> (GPTW).</li>
+              </ul>
+              <div class="achievement-badge">🏆 Deming Grand Prize — JUSE, Japan</div>
+              <div class="achievement-badge" style="margin-left:8px;">🌟 Great Place to Work — GPTW</div>
+            </div>
+          </div>
+
+          <!-- Thoratec -->
+          <div class="tl-item fade-in">
+            <div class="tl-dot"></div>
+            <div class="tl-date">
+              Apr 2009 – Sep 2014
+              <span class="tl-location">📍 Pleasanton, CA, USA</span>
+            </div>
+            <div class="tl-card">
+              <h3>Operations Controller / Cost Accounting Manager / Risk Management Manager</h3>
+              <span class="tl-company">Thoratec Corporation (MedTech — Ventricular Assist Devices)</span>
+              <div class="tl-sub-roles">
+                <div class="tl-sub-role"><strong>Operations Controller</strong> — Jun 2012 – Sep 2014</div>
+                <div class="tl-sub-role"><strong>Cost Accounting Manager</strong> — Jan 2011 – Jun 2012</div>
+                <div class="tl-sub-role"><strong>Risk Management Manager</strong> — Apr 2009 – Jan 2011</div>
+              </div>
+              <ul class="tl-bullets">
+                <li>Led the company-wide 5-year Strategic Planning process, shaping long-term direction across all functions.</li>
+                <li>Direct oversight of two manufacturing locations: California and Zurich, Switzerland.</li>
+                <li>Managed $60M in inventory across multiple domestic and international locations.</li>
+                <li>Project lead for ERP system implementation at the Zurich subsidiary.</li>
+                <li>Managed and executed the termination of a distributor arrangement in Germany — the largest European market — and implemented a direct sales model.</li>
+                <li>Led the company-wide operating plan and forecast process, covering revenue, gross margin, and operating expenses.</li>
+                <li>Managed internal audits and reported directly to the Audit Committee of the Board of Directors.</li>
+                <li>Developed and implemented the enterprise-wide Risk Management programme.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- KPMG -->
+          <div class="tl-item fade-in">
+            <div class="tl-dot"></div>
+            <div class="tl-date">
+              Oct 2005 – Apr 2009
+              <span class="tl-location">📍 San Francisco, CA, USA</span>
+            </div>
+            <div class="tl-card">
+              <h3>Senior Associate — Risk Advisory Services</h3>
+              <span class="tl-company">KPMG LLP</span>
+              <ul class="tl-bullets">
+                <li>Lead senior responsible for planning, budgeting, execution, and delivery of financial and operational Internal Audits for a <strong>$10B off-price retail company</strong>.</li>
+                <li>Interviewed senior management of a <strong>$600M medical devices manufacturer</strong> to identify key controls as part of a risk assessment and control rationalisation exercise.</li>
+                <li>Evaluated and tested the internal control environment for a <strong>$60B online search engine company</strong> — one of the largest technology companies in the world at the time.</li>
+                <li>Conducted Internal Audits at a bank, reviewing pricing of collaterals, bank-owned mortgage-backed securities, and compliance with Anti-Money Laundering (AML) legislation.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- TRW -->
+          <div class="tl-item fade-in">
+            <div class="tl-dot"></div>
+            <div class="tl-date">
+              Jul 2002 – Jan 2003
+              <span class="tl-location">📍 Rogersville, TN, USA</span>
+            </div>
+            <div class="tl-card">
+              <h3>Intern — Financial Analyst</h3>
+              <span class="tl-company">TRW Automotive USA</span>
+              <ul class="tl-bullets">
+                <li>Assisted with building revenue and expense forecast models and analysing actual vs. budget results for a major US automotive supplier.</li>
+                <li>Supported the Controller in developing process narratives and identifying internal control gaps.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Rane Group -->
+          <div class="tl-item fade-in">
+            <div class="tl-dot"></div>
+            <div class="tl-date">
+              Feb 2001 – Jun 2002
+              <span class="tl-location">📍 Madras, India</span>
+            </div>
+            <div class="tl-card">
+              <h3>Management Associate</h3>
+              <span class="tl-company">Rane Group (Auto-Component Manufacturer)</span>
+              <ul class="tl-bullets">
+                <li>Participated in a structured rotation programme across three manufacturing facilities, gaining hands-on understanding of the full supply chain — from raw material procurement through production to finished goods shipping.</li>
+                <li>Built foundational knowledge of manufacturing operations and quality management that would later inform CEO-level decisions at Rane Brake Lining.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Arthur Andersen -->
+          <div class="tl-item fade-in">
+            <div class="tl-dot"></div>
+            <div class="tl-date">
+              Jul 1997 – Jan 2001
+              <span class="tl-location">📍 Madras, India</span>
+            </div>
+            <div class="tl-card">
+              <h3>Senior Consultant</h3>
+              <span class="tl-company">Arthur Andersen, LLP</span>
+              <p>Began a professional career at one of the world's premier consulting and audit firms, working with major global clients entering the Indian market.</p>
+              <ul class="tl-bullets">
+                <li>Planned and led audit assignments and due diligence reviews across multiple industries.</li>
+                <li>Developed market entry strategies for global clients; extensively engaged with the Central Bank of India and obtained federal investment approvals, enabling clients to establish operations and invest over <strong>$800M in aggregate</strong>.</li>
+                <li>Restructured a contract for a <strong>$30B energy company</strong>, resulting in tax savings of $1M.</li>
+                <li>Developed a strategic worldwide entity-structuring model for a <strong>$300M global software company</strong>, delivering tax savings of 25%.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">VL<span>.</span></div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Vinay Lakshman. All rights reserved.</p>
+        <span class="footer-quote">"The cosmos is within us. We are made of star-stuff." — Carl Sagan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

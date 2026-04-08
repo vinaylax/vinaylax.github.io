@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Vinay Lakshman</title>
+  <meta name="description" content="About Vinay Lakshman — Global leader, philosopher, and MSS candidate at ISU Strasbourg." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .about-full-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .profile-card {
+      background: var(--color-bg-alt);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-align: center;
+    }
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .profile-card h3 { font-size: 1.25rem; margin-bottom: 4px; }
+    .profile-card .profile-title { color: var(--color-text-light); font-size: 0.9rem; margin-bottom: 20px; }
+    .profile-links { display: flex; flex-direction: column; gap: 10px; margin-top: 24px; }
+    .profile-link {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px; border-radius: 8px;
+      background: #fff; font-size: 0.85rem; font-weight: 500;
+      color: var(--color-text); transition: all var(--transition);
+      border: 1px solid var(--color-border);
+    }
+    .profile-link:hover { border-color: var(--color-accent); color: var(--color-accent); transform: translateX(4px); }
+    .about-body h2 { margin-bottom: 16px; }
+    .about-body p { color: var(--color-text-light); margin-bottom: 20px; font-size: 1.02rem; line-height: 1.85; }
+    .about-body .quote {
+      font-family: var(--font-accent); font-style: italic; font-size: 1.2rem;
+      color: var(--color-secondary); border-left: 3px solid var(--color-gold);
+      padding: 16px 24px; margin: 32px 0; background: var(--color-bg-alt);
+      border-radius: 0 8px 8px 0;
+    }
+    .about-body .quote cite { display: block; font-size: 0.85rem; font-style: normal; color: var(--color-text-light); margin-top: 8px; }
+    .values-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;
+    }
+    .value-card {
+      background: var(--color-bg-alt); padding: 24px; border-radius: 12px;
+      border: 1px solid var(--color-border);
+    }
+    .value-card .icon { font-size: 1.5rem; margin-bottom: 12px; display: block; }
+    .value-card h4 { font-size: 1rem; margin-bottom: 6px; }
+    .value-card p { font-size: 0.88rem; color: var(--color-text-light); margin: 0; }
+    .education-list { display: flex; flex-direction: column; gap: 20px; margin-top: 12px; }
+    .education-item {
+      background: var(--color-bg-alt); padding: 24px 28px; border-radius: 12px;
+      border-left: 4px solid var(--color-accent);
+    }
+    .education-item.philosophy { border-left-color: var(--color-gold); }
+    .education-item h4 { font-size: 1rem; margin-bottom: 4px; }
+    .education-item .school { font-size: 0.9rem; font-weight: 600; color: var(--color-accent); margin-bottom: 2px; }
+    .education-item.philosophy .school { color: var(--color-gold); }
+    .education-item .dates { font-size: 0.8rem; color: var(--color-text-light); margin-bottom: 8px; }
+    .education-item p { font-size: 0.88rem; color: var(--color-text-light); margin: 0; }
+    @media (max-width: 968px) {
+      .about-full-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-sidebar { position: static; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) { .values-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">VL<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">About Me</span>
+      <h1>A Life Shaped by Curiosity</h1>
+      <p>From Madras to San Francisco, Chennai to Strasbourg — a career that has always asked bigger questions.</p>
+    </div>
+  </div>
+
+  <!-- Main About Content -->
+  <section>
+    <div class="container">
+      <div class="about-full-grid">
+
+        <!-- Sidebar -->
+        <div class="about-sidebar fade-in">
+          <div class="profile-card">
+            <div class="profile-avatar">VL</div>
+            <h3>Vinay Lakshman</h3>
+            <p class="profile-title">MSS Candidate · ISU Strasbourg<br />Former CEO · Space Sector Aspirant</p>
+            <div class="profile-links">
+              <a href="https://www.linkedin.com/in/vinay-lakshman" target="_blank" class="profile-link">
+                <span>🔗</span> LinkedIn Profile
+              </a>
+              <a href="contact.html" class="profile-link">
+                <span>✉️</span> Get in Touch
+              </a>
+              <a href="experience.html" class="profile-link">
+                <span>📋</span> Full Experience
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="about-body">
+
+          <div class="fade-in">
+            <span class="section-label">My Story</span>
+            <h2>Built on Three Decades of Bold Decisions</h2>
+            <p>
+              I began my career in 1997 at Arthur Andersen in Madras, where I discovered a passion for complex, high-stakes problem-solving — helping global companies navigate India's regulatory environment, facilitating over $800M in foreign investment approvals, and restructuring contracts for some of the world's largest energy and technology firms.
+            </p>
+            <p>
+              That foundation in consulting led me to the United States, where I joined TRW Automotive in Tennessee before earning a Master of Accounting and Financial Management from Keller Graduate School of Management in Chicago. Then came KPMG in San Francisco — four years of leading risk advisory engagements for companies ranging from $600M medical device manufacturers to a $60B internet giant, sharpening my ability to see systemic risk and opportunity inside complex organisations.
+            </p>
+          </div>
+
+          <div class="fade-in">
+            <blockquote class="quote">
+              "The cosmos is not a hostile wilderness. It is our home — and understanding it requires both the telescope and the examined life."
+              <cite>— Vinay Lakshman</cite>
+            </blockquote>
+          </div>
+
+          <div class="fade-in">
+            <p>
+              At Thoratec Corporation, a MedTech pioneer making ventricular assist devices that keep patients alive while they await heart transplants, I progressed from Risk Management Manager to Operations Controller — leading 5-year strategic planning, overseeing two manufacturing sites in California and Zurich, managing $60M in global inventory, and reporting directly to the Audit Committee of the Board.
+            </p>
+            <p>
+              The next chapter brought me home to India, where Rane Brake Lining — a publicly listed automotive components company — asked me to lead the business as CEO & Managing Director. Over five years, I grew revenue from €44M to €56M, doubled profitability, drove R&D investment from 2.5% to 8.5% of sales, shifted the renewable energy mix from 18% to 40%, and led the company to win the Deming Grand Prize from JUSE, Japan — one of the world's most rigorous quality certifications. The company was also recognised as a Great Place to Work.
+            </p>
+          </div>
+
+          <div class="fade-in">
+            <h2>The Philosophical Pause</h2>
+            <p>
+              Between 2020 and 2022, I made a deliberate choice that surprised many colleagues: I stepped away from the executive world to study Indian Philosophy of Non-Duality at Arsha Vidya Gurukulam. For two years, I immersed myself in Vedantic logic, ethics, and the deepest questions of consciousness and existence.
+            </p>
+            <p>
+              This wasn't a retreat from leadership — it was an intensification of it. The study of Non-Duality trains the mind to perceive the interconnectedness beneath apparent differences, to reason with rigour and act with equanimity. It changed the quality of my thinking in ways that no MBA or boardroom ever could.
+            </p>
+          </div>
+
+          <div class="fade-in">
+            <blockquote class="quote">
+              "Science without religion is lame, and religion without science is blind."
+              <cite>— Albert Einstein</cite>
+            </blockquote>
+          </div>
+
+          <div class="fade-in">
+            <h2>The Space Chapter</h2>
+            <p>
+              I am now pursuing the Master of Space Studies (MSS) at the International Space University in Strasbourg, graduating in July 2026. My specialisation covers space entrepreneurship, economics, commercial space strategy, policy and law — the intersection where my 20+ years of business experience becomes directly applicable to the fastest-growing frontier in human history.
+            </p>
+            <p>
+              My individual research project — <em>Impact of Philosophy and Theology on Space Exploration in the 21st Century</em> — argues that humanity's long-term success in space demands not just scientific and engineering excellence, but a coherent philosophical and ethical framework. My team project contributes to a global communication strategy for deep space exploration.
+            </p>
+            <p>
+              I am seeking full-time opportunities in the commercial space sector starting July 2026 — in strategy, business development, finance, operations, or policy roles where I can help organisations scale responsibly and think clearly about the long arc of human spaceflight.
+            </p>
+          </div>
+
+          <!-- Values -->
+          <div class="fade-in">
+            <h2 style="margin-top: 48px;">What Drives Me</h2>
+            <div class="values-grid">
+              <div class="value-card">
+                <span class="icon">🔭</span>
+                <h4>Curiosity</h4>
+                <p>Always asking the deeper question — whether in a balance sheet, a philosophy text, or a starfield.</p>
+              </div>
+              <div class="value-card">
+                <span class="icon">⚖️</span>
+                <h4>Integrity</h4>
+                <p>Two decades of governance, audit, and leadership have made ethics non-negotiable in everything I do.</p>
+              </div>
+              <div class="value-card">
+                <span class="icon">🌐</span>
+                <h4>Global Perspective</h4>
+                <p>India, USA, Europe — I've worked across cultures and know that the best solutions cross borders.</p>
+              </div>
+              <div class="value-card">
+                <span class="icon">🧘</span>
+                <h4>Equanimity</h4>
+                <p>Philosophy trained me to lead calmly under pressure and find the signal beneath the noise.</p>
+              </div>
+              <div class="value-card">
+                <span class="icon">📈</span>
+                <h4>Impact</h4>
+                <p>I don't just manage — I transform. Every role has measurably moved the needle.</p>
+              </div>
+              <div class="value-card">
+                <span class="icon">✨</span>
+                <h4>Wonder</h4>
+                <p>The Overview Effect begins on Earth. Seeing the whole system is how I've always led.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="fade-in" style="margin-top: 64px;">
+            <span class="section-label">Education</span>
+            <h2>A Lifelong Student</h2>
+            <div class="education-list">
+              <div class="education-item">
+                <h4>Master of Space Studies (MSS)</h4>
+                <div class="school">International Space University (ISU), Strasbourg, France</div>
+                <div class="dates">Sep 2025 – July 2026</div>
+                <p>Space Entrepreneurship, Economics, Commercial Space Strategy, Policy & Law. Team Project: Global Communication Strategy for Deep Space Exploration.</p>
+              </div>
+              <div class="education-item philosophy">
+                <h4>Indian Philosophy of Non-Duality</h4>
+                <div class="school">Arsha Vidya Gurukulam, India</div>
+                <div class="dates">Jan 2020 – July 2022</div>
+                <p>Structured study in Vedantic philosophy with emphasis on logic, ethics, and analytical clarity — strengthening reflective, values-based leadership.</p>
+              </div>
+              <div class="education-item">
+                <h4>Master of Accounting and Financial Management</h4>
+                <div class="school">Keller Graduate School of Management, DeVry University, Chicago, IL</div>
+                <div class="dates">Feb 2003 – July 2005</div>
+              </div>
+              <div class="education-item">
+                <h4>Certified (Inter) Chartered Accountant</h4>
+                <div class="school">Indian Institute of Chartered Accountants</div>
+                <div class="dates">June 1997 – May 2001</div>
+              </div>
+              <div class="education-item">
+                <h4>Bachelor of Commerce</h4>
+                <div class="school">Loyola College, University of Madras, India</div>
+                <div class="dates">June 1994 – May 1997</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">VL<span>.</span></div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Vinay Lakshman. All rights reserved.</p>
+        <span class="footer-quote">"The cosmos is within us. We are made of star-stuff." — Carl Sagan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

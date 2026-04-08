@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Vinay Lakshman</title>
+  <meta name="description" content="Vinay Lakshman's research and projects — philosophy, space exploration, and space commercialisation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .projects-intro { max-width: 680px; margin: 0 auto 72px; text-align: center; }
+    .projects-intro p { color: var(--color-text-light); font-size: 1.05rem; }
+
+    /* Featured Project */
+    .project-featured {
+      background: var(--color-primary);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 48px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+    }
+    .project-featured-visual {
+      padding: 64px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-featured-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(74, 144, 217, 0.2) 0%, transparent 70%);
+    }
+    .featured-visual-content { text-align: center; position: relative; z-index: 2; }
+    .featured-visual-content .big-quote {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .featured-visual-content .big-quote em { color: var(--color-gold); font-style: normal; }
+    .orbit-visual {
+      width: 120px; height: 120px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      margin: 32px auto;
+      position: relative;
+      animation: spin 20s linear infinite;
+    }
+    .orbit-visual::before {
+      content: '✦';
+      position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+      color: var(--color-gold); font-size: 1rem;
+    }
+    .orbit-dot {
+      width: 60px; height: 60px;
+      background: radial-gradient(circle, rgba(74,144,217,0.4), transparent);
+      border-radius: 50%;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .project-featured-content {
+      padding: 64px 48px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .project-featured-content .project-tag { margin-bottom: 12px; }
+    .project-featured-content h2 { font-size: 1.5rem; margin-bottom: 16px; }
+    .project-featured-content p { color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 16px; line-height: 1.75; }
+
+    .key-themes { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+    .theme-pill {
+      font-size: 0.78rem; padding: 5px 14px; border-radius: 20px;
+      background: var(--color-bg-alt); color: var(--color-text-light);
+      font-weight: 500; border: 1px solid var(--color-border);
+    }
+
+    /* Secondary Projects */
+    .secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+    .project-card-small {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 16px;
+      padding: 36px;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card-small::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .project-card-small:hover::after { transform: scaleX(1); }
+    .project-card-small:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.07); transform: translateY(-4px); }
+    .project-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+    .project-card-small .project-tag { margin-bottom: 10px; }
+    .project-card-small h3 { font-size: 1.1rem; margin-bottom: 12px; }
+    .project-card-small p { color: var(--color-text-light); font-size: 0.9rem; line-height: 1.7; }
+    .project-card-small .project-meta { margin-top: 20px; font-size: 0.82rem; color: var(--color-text-light); }
+
+    /* Philosophical Quotes */
+    .quotes-section { background: var(--color-primary); padding: 80px 0; }
+    .quotes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .philosophy-quote {
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      transition: all var(--transition);
+    }
+    .philosophy-quote:hover { background: rgba(255,255,255,0.04); border-color: rgba(201,168,76,0.3); }
+    .philosophy-quote .q-text {
+      font-family: var(--font-accent);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .philosophy-quote .q-author { font-size: 0.82rem; color: var(--color-gold); font-weight: 600; }
+
+    @media (max-width: 968px) {
+      .project-featured { grid-template-columns: 1fr; }
+      .project-featured-visual { min-height: 280px; }
+      .secondary-grid { grid-template-columns: 1fr; }
+      .quotes-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar scrolled" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">VL<span>.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Research &amp; Projects</span>
+      <h1>Ideas at the Edge of the Known</h1>
+      <p>Research and initiatives that sit at the crossroads of philosophy, space, commerce, and technology.</p>
+    </div>
+  </div>
+
+  <!-- Projects -->
+  <section>
+    <div class="container">
+
+      <div class="projects-intro fade-in">
+        <span class="section-label">Featured Work</span>
+        <h2>Where Deep Thinking Meets the Cosmos</h2>
+        <p>From my ISU individual and team research to my advisory work in SATCOM-connected mobility, these projects reflect the intersection of strategic thinking, philosophical inquiry, and the commercial space frontier.</p>
+      </div>
+
+      <!-- Featured Project -->
+      <div class="project-featured fade-in">
+        <div class="project-featured-visual">
+          <div class="featured-visual-content">
+            <p class="big-quote">
+              "Science clarifies the <em>what</em>.<br />
+              Philosophy offers the <em>why</em>.<br />
+              Both are needed to reach the stars."
+            </p>
+            <div class="orbit-visual">
+              <div class="orbit-dot"></div>
+            </div>
+          </div>
+        </div>
+        <div class="project-featured-content">
+          <span class="project-tag">ISU Individual Research · January 2026</span>
+          <h2>Impact of Philosophy &amp; Theology on Space Exploration in the 21st Century</h2>
+          <p>
+            This interdisciplinary paper examines the convergence of philosophy, theology, and science within the framework of 21st-century space exploration. The 17th-century Scientific Revolution created a "Great Schism" between empirical science and metaphysical inquiry — a division this research argues we must now overcome.
+          </p>
+          <p>
+            Tracing philosophical contributions from Konstantin Tsiolkovsky and Carl Sagan through to contemporary space ethics, and examining theological perspectives from Christianity, Buddhism, and Hinduism's cyclical cosmology, the paper makes the case that humanity's enduring success beyond Earth depends on integrating scientific rigour with philosophical wisdom.
+          </p>
+          <div class="key-themes">
+            <span class="theme-pill">Philosophy of Science</span>
+            <span class="theme-pill">Space Ethics</span>
+            <span class="theme-pill">Tsiolkovsky · Sagan</span>
+            <span class="theme-pill">Cosmology</span>
+            <span class="theme-pill">Overview Effect</span>
+            <span class="theme-pill">Non-Duality</span>
+            <span class="theme-pill">Buddhism</span>
+            <span class="theme-pill">Hinduism</span>
+            <span class="theme-pill">Christianity</span>
+          </div>
+          <p style="margin-top:16px;">
+            <strong>Key finding:</strong> Space exploration is both a pursuit of "cosmic truth" and a technology that serves human needs — requiring a collaborative framework in which science clarifies the <em>what</em>, while philosophy and theology provide the <em>why</em> and the ethical compass for humanity's journey beyond Earth.
+          </p>
+          <div class="project-meta">
+            <span>📍 International Space University, Strasbourg</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary Projects -->
+      <div class="secondary-grid">
+
+        <div class="project-card-small fade-in">
+          <span class="project-icon">🌐</span>
+          <span class="project-tag">ISU Team Project · 2025–2026</span>
+          <h3>Global Communication Strategy for Deep Space Exploration</h3>
+          <p>
+            As part of an international, multidisciplinary ISU team, contributing to the development of a global communication strategy for deep space exploration missions — addressing challenges of signal latency, data architecture, stakeholder coordination, and public engagement across interplanetary distances.
+          </p>
+          <div class="project-meta">📍 ISU Strasbourg · Team Research</div>
+        </div>
+
+        <div class="project-card-small fade-in">
+          <span class="project-icon">🛰️</span>
+          <span class="project-tag">Board Advisory · 2023–Present</span>
+          <h3>SATCOM-Based OTA Architecture for Automotive</h3>
+          <p>
+            As Investor Board Member at Enginecal Private Limited, exploring how SATCOM (Satellite Communication) technology can enable Over-the-Air (OTA) software updates for connected vehicles — a direct application of space infrastructure to the mobility sector, improving safety, efficiency, and vehicle lifecycle management.
+          </p>
+          <div class="project-meta">📍 Enginecal Pvt. Ltd. · India</div>
+        </div>
+
+        <div class="project-card-small fade-in">
+          <span class="project-icon">🏭</span>
+          <span class="project-tag">CEO Transformation · 2014–2020</span>
+          <h3>Rane Brake Lining — Strategic Transformation Programme</h3>
+          <p>
+            A five-year enterprise-wide transformation: scaling revenue 27%, tripling R&D investment as a share of sales, shifting to 40% renewable energy, and winning Japan's Deming Grand Prize for quality. A case study in how patient, values-driven leadership creates lasting institutional change.
+          </p>
+          <div class="project-meta">📍 Rane Brake Lining Ltd. · Chennai, India</div>
+        </div>
+
+        <div class="project-card-small fade-in">
+          <span class="project-icon">🧘</span>
+          <span class="project-tag">Philosophical Study · 2020–2022</span>
+          <h3>Indian Philosophy of Non-Duality (Advaita Vedanta)</h3>
+          <p>
+            A two-year deep-dive into Advaita Vedanta — the Indian philosophy of Non-Duality — at Arsha Vidya Gurukulam. This structured programme in logic, ethics, and metaphysics reshaped how I understand leadership, decision-making, and humanity's place in the cosmos. A foundation now applied to space philosophy research.
+          </p>
+          <div class="project-meta">📍 Arsha Vidya Gurukulam · India</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Quotes -->
+  <section class="quotes-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label" style="color: var(--color-gold);">Philosophy &amp; Space</span>
+        <h2 style="color: #fff;">Words That Shape My Thinking</h2>
+      </div>
+      <div class="quotes-grid">
+        <div class="philosophy-quote fade-in">
+          <p class="q-text">"Man must rise above the Earth — to the top of the atmosphere and beyond — for only then will he fully understand the world in which he lives."</p>
+          <span class="q-author">— Socrates</span>
+        </div>
+        <div class="philosophy-quote fade-in">
+          <p class="q-text">"The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself."</p>
+          <span class="q-author">— Carl Sagan</span>
+        </div>
+        <div class="philosophy-quote fade-in">
+          <p class="q-text">"Science without religion is lame, and religion without science is blind."</p>
+          <span class="q-author">— Albert Einstein</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">VL<span>.</span></div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="experience.html">Experience</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Vinay Lakshman. All rights reserved.</p>
+        <span class="footer-quote">"The cosmos is within us. We are made of star-stuff." — Carl Sagan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

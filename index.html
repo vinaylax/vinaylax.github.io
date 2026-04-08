@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vinay Lakshman — Strategy, Leadership & the Space Frontier</title>
+  <meta name="description" content="Vinay Lakshman — Global strategy and finance leader, MSS candidate at ISU Strasbourg, space enthusiast, philosopher." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="nav-logo">VL<span>.</span></div>
+      <div class="nav-right">
+        <a href="mailto:lakshmanvinay@gmail.com" class="nav-btn">Contact Me</a>
+        <a href="https://www.linkedin.com/in/vinay-lakshman" target="_blank" class="nav-btn primary">LinkedIn ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <canvas id="stars-canvas"></canvas>
+    <div class="container">
+
+      <!-- Photo Column -->
+      <div class="hero-photo-wrap fade-in">
+        <div class="hero-photo" id="hero-photo-box" style="border:none;background:transparent;">
+          <img id="hero-img" src="VinayPic.jpg" alt="Vinay Lakshman" style="display:block;" />
+          <div class="photo-placeholder" id="photo-placeholder" style="display:none;">
+            <span class="icon">🖼️</span>
+            <p>Your photo<br />will appear here</p>
+          </div>
+        </div>
+        <div class="hero-photo-name">VINAY LAKSHMAN</div>
+        <div class="hero-photo-title">MSS · ISU Strasbourg · Class of 2026</div>
+      </div>
+
+      <!-- Text Column -->
+      <div class="hero-text fade-in">
+        <span class="hero-eyebrow">Strategy · Leadership · Space</span>
+        <h1>About <em>Vinay</em></h1>
+
+        <div class="intro-paras">
+
+          <div class="intro-para">
+            <span class="label">Education</span>
+            My academic journey spans four decades and three continents. I began with a Bachelor of Commerce at Loyola College, University of Madras, followed by the Intermediate Chartered Accountant qualification from the Institute of Chartered Accountants of India. I then pursued a Master of Accounting and Financial Management at Keller Graduate School of Management, DeVry University in Chicago. Between professional chapters, I completed a transformative two-year programme in Indian Philosophy of Non-Duality at Arsha Vidya Gurukulam. Today, I am an MSS candidate at the International Space University in Strasbourg — specialising in space entrepreneurship, economics, policy, and law — graduating in July 2026.
+          </div>
+
+          <div class="intro-para">
+            <span class="label">Professional Experience</span>
+            Over 20 years of global leadership have taken me from Senior Consultant at Arthur Andersen in Madras — structuring investments and advising the world's largest companies — to Senior Associate at KPMG in San Francisco, where I led risk advisory engagements for organisations up to $60 billion in scale. At Thoratec Corporation, a MedTech pioneer building life-saving heart-assist devices, I progressed to Operations Controller, overseeing global manufacturing and strategic planning. I then returned to India as CEO &amp; Managing Director of Rane Brake Lining Limited — a publicly listed company — where I scaled revenue from €44M to €56M, doubled profitability, tripled R&amp;D investment, and earned Japan's Deming Grand Prize for quality. I currently serve as an Investor Board Member at Enginecal, a start-up exploring the intersection of SATCOM technology and automotive AI.
+          </div>
+
+          <div class="intro-para">
+            <span class="label">Love for Space &amp; the New Space Economy</span>
+            Space has always called to me — not merely as a technological frontier, but as the ultimate expression of humanity's curiosity and ambition. At ISU, I am immersing myself in the commercial, legal, and entrepreneurial dimensions of the space sector. My individual research explores how philosophy and theology shape our approach to space exploration — arguing that science answers the <em>what</em>, while philosophy provides the <em>why</em>. I am actively seeking full-time opportunities in the global commercial space economy after July 2026, bringing 20+ years of strategic, financial, and operational leadership to an industry that is redefining the boundaries of what is possible.
+          </div>
+
+          <div class="intro-para">
+            <span class="label">Beyond the Boardroom</span>
+            I am a student of Indian philosophy, a lover of food, an enthusiastic cricketer and golfer, and a proud half-marathoner. I have been a member of the Young Presidents' Organization (YPO), the Confederation of Indian Industry (CII), ACMA, and SOCHAM. Music moves me deeply — whether classical Carnatic or timeless jazz. I believe that the richest life is one lived at the intersection of rigour and wonder, discipline and curiosity, action and reflection.
+          </div>
+
+        </div>
+
+        <div class="hero-actions">
+          <a href="mailto:lakshmanvinay@gmail.com" class="btn btn-primary">Get in Touch →</a>
+          <a href="https://www.linkedin.com/in/vinay-lakshman" target="_blank" class="btn btn-ghost">LinkedIn Profile ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── THREE BOXES ── -->
+  <section class="boxes-section">
+    <div class="container">
+
+      <!-- Triggers -->
+      <div class="boxes-grid">
+        <div class="box-trigger fade-in" data-target="panel-experience">
+          <div class="box-icon">💼</div>
+          <div class="box-title">Experience</div>
+          <div class="box-subtitle">20+ years across 4 continents — from Big 4 consulting to CEO</div>
+          <div class="box-arrow">▾</div>
+        </div>
+        <div class="box-trigger fade-in" data-target="panel-education">
+          <div class="box-icon">🎓</div>
+          <div class="box-title">Education</div>
+          <div class="box-subtitle">ISU Strasbourg · Keller · ICAI · Loyola · DAV</div>
+          <div class="box-arrow">▾</div>
+        </div>
+        <div class="box-trigger fade-in" data-target="panel-knowing">
+          <div class="box-icon">🌌</div>
+          <div class="box-title">Knowing Vinay</div>
+          <div class="box-subtitle">Philosophy, sport, culture, memberships &amp; passions</div>
+          <div class="box-arrow">▾</div>
+        </div>
+      </div>
+
+      <!-- ── PANEL 1: EXPERIENCE ── -->
+      <div class="box-panel" id="panel-experience">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div class="panel-header-icon">💼</div>
+            <div>
+              <h2>Professional Experience</h2>
+              <p>A 27-year career spanning consulting, MedTech, automotive, and the space frontier</p>
+            </div>
+          </div>
+
+          <div class="exp-list">
+
+            <!-- Enginecal -->
+            <div class="exp-item">
+              <div class="exp-left">
+                <span class="exp-date">2023 – Present</span>
+                <div class="exp-logo-wrap">
+                  <span class="company-badge">Enginecal</span>
+                </div>
+              </div>
+              <div class="exp-right">
+                <h3>Investor Board Member</h3>
+                <div class="exp-company">Enginecal Private Limited</div>
+                <div class="exp-location">📍 India · Start-up</div>
+                <ul class="exp-bullets">
+                  <li>Exploring SATCOM-based Over-the-Air (OTA) update architecture for the automotive sector — a direct bridge between space infrastructure and connected mobility.</li>
+                  <li>Creating high-value impact in the mobility ecosystem using deep vehicle analytics and automotive AI.</li>
+                  <li>Developing connected car ecosystems for safe, clean, and efficient motoring.</li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="exp-tag">SATCOM</span>
+                  <span class="exp-tag">OTA Updates</span>
+                  <span class="exp-tag">Automotive AI</span>
+                  <span class="exp-tag">Space Tech</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rane Brake Lining -->
+            <div class="exp-item">
+              <div class="exp-left">
+                <span class="exp-date">2014 – 2020</span>
+                <div class="exp-logo-wrap">
+                  <img src="https://logo.clearbit.com/ranegroup.com" alt="Rane Group" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';" />
+                  <span class="company-badge" style="display:none;">Rane</span>
+                </div>
+              </div>
+              <div class="exp-right">
+                <h3>CEO &amp; Managing Director</h3>
+                <div class="exp-company">
+                  <a href="https://www.ranegroup.com" target="_blank">Rane Brake Lining Limited ↗</a>
+                  &nbsp;· Chennai, India · Public Listed (BSE/NSE)
+                </div>
+                <div class="exp-location">📍 Chennai, India</div>
+                <ul class="exp-bullets">
+                  <li>Grew revenue from <strong>€44M to €56M</strong> over five years — a 27% increase.</li>
+                  <li>Doubled PBT from 5% to 10%, increasing PAT from €1.8M to €2.2M.</li>
+                  <li>Drove R&amp;D investment from <strong>2.5% to 8.5% of sales</strong> — a 3.4× increase positioning the company as a technology leader.</li>
+                  <li>Increased renewable energy mix from 18% to 40%, cutting power cost from 6.5% to 5% of revenue.</li>
+                  <li>Implemented an enhanced Quality Control System resulting in re-certification of the <strong>Deming Grand Prize</strong> from JUSE, Japan — one of the world's most prestigious quality awards.</li>
+                  <li>Led work-life balance initiatives resulting in recognition as a <strong>Great Place to Work</strong> (GPTW).</li>
+                  <li>Led executive team to develop, strategise, and execute multi-year transformation roadmap.</li>
+                </ul>
+                <div>
+                  <span class="achievement">🏆 Deming Grand Prize — JUSE, Japan</span>
+                  <span class="achievement">🌟 Great Place to Work — GPTW</span>
+                </div>
+                <div class="exp-tags">
+                  <span class="exp-tag">P&L Leadership</span>
+                  <span class="exp-tag">Strategic Planning</span>
+                  <span class="exp-tag">R&D Investment</span>
+                  <span class="exp-tag">ESG</span>
+                  <span class="exp-tag">Quality Management</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thoratec -->
+            <div class="exp-item">
+              <div class="exp-left">
+                <span class="exp-date">2009 – 2014</span>
+                <div class="exp-logo-wrap">
+                  <img src="https://logo.clearbit.com/thoratec.com" alt="Thoratec" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';" />
+                  <span class="company-badge" style="display:none;">Thoratec</span>
+                </div>
+              </div>
+              <div class="exp-right">
+                <h3>Operations Controller · Cost Accounting Manager · Risk Management Manager</h3>
+                <div class="exp-company">
+                  <a href="https://www.thoratec.com" target="_blank">Thoratec Corporation ↗</a>
+                </div>
+                <div class="exp-location">📍 Pleasanton, CA, USA · MedTech (Ventricular Assist Devices)</div>
+                <div class="exp-sub-roles">
+                  <div class="exp-sub-role"><strong>Operations Controller</strong> — Jun 2012 – Sep 2014</div>
+                  <div class="exp-sub-role"><strong>Cost Accounting Manager</strong> — Jan 2011 – Jun 2012</div>
+                  <div class="exp-sub-role"><strong>Risk Management Manager</strong> — Apr 2009 – Jan 2011</div>
+                </div>
+                <ul class="exp-bullets">
+                  <li>Led the company-wide 5-year Strategic Planning process, shaping long-term direction across all functions.</li>
+                  <li>Direct oversight of two manufacturing locations: California and Zurich, Switzerland.</li>
+                  <li>Managed $60M in inventory across multiple domestic and international locations.</li>
+                  <li>Project lead for ERP system implementation at the Zurich subsidiary.</li>
+                  <li>Managed and executed the termination of a distributor arrangement in Germany — Thoratec's largest European market — and implemented a direct sales model.</li>
+                  <li>Led the company-wide operating plan and forecast process covering revenue, gross margin, and operating expenses.</li>
+                  <li>Managed internal audits and reported directly to the Audit Committee of the Board of Directors.</li>
+                  <li>Developed and implemented the enterprise-wide Risk Management programme.</li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="exp-tag">Strategic Planning</span>
+                  <span class="exp-tag">Global Manufacturing</span>
+                  <span class="exp-tag">Risk Management</span>
+                  <span class="exp-tag">ERP</span>
+                  <span class="exp-tag">Board Reporting</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- KPMG -->
+            <div class="exp-item">
+              <div class="exp-left">
+                <span class="exp-date">2005 – 2009</span>
+                <div class="exp-logo-wrap">
+                  <img src="https://logo.clearbit.com/kpmg.com" alt="KPMG" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';" />
+                  <span class="company-badge" style="display:none;">KPMG</span>
+                </div>
+              </div>
+              <div class="exp-right">
+                <h3>Senior Associate — Risk Advisory Services</h3>
+                <div class="exp-company">
+                  <a href="https://kpmg.com/us" target="_blank">KPMG LLP ↗</a>
+                </div>
+                <div class="exp-location">📍 San Francisco, CA, USA</div>
+                <ul class="exp-bullets">
+                  <li>Lead senior responsible for planning, budgeting, execution, and delivery of financial and operational Internal Audits for a <strong>$10B off-price retail company</strong>.</li>
+                  <li>Interviewed senior management of a <strong>$600M medical devices manufacturer</strong> and identified key controls as part of a comprehensive risk assessment and control rationalisation exercise.</li>
+                  <li>Evaluated and tested the internal control environment for a <strong>$60B online search engine company</strong> — one of the world's largest technology firms.</li>
+                  <li>Performed Internal Audits at a major bank, reviewing the pricing of collaterals and bank-owned mortgage-backed securities, and assessing compliance with Anti-Money Laundering (AML) laws.</li>
+                  <li>Developed risk-based audit programmes and presented findings to senior management and audit committees.</li>
+                  <li>Managed client relationships and cross-functional teams across multiple concurrent engagements.</li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="exp-tag">Internal Audit</span>
+                  <span class="exp-tag">Risk Advisory</span>
+                  <span class="exp-tag">AML Compliance</span>
+                  <span class="exp-tag">Big 4</span>
+                  <span class="exp-tag">Controls</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TRW -->
+            <div class="exp-item">
+              <div class="exp-left">
+                <span class="exp-date">2002 – 2003</span>
+                <div class="exp-logo-wrap">
+                  <img src="https://logo.clearbit.com/zf.com" alt="TRW / ZF" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';" />
+                  <span class="company-badge" style="display:none;">TRW</span>
+                </div>
+              </div>
+              <div class="exp-right">
+                <h3>Intern — Financial Analyst</h3>
+                <div class="exp-company">
+                  <a href="https://www.zf.com" target="_blank">TRW Automotive USA (now ZF Group) ↗</a>
+                </div>
+                <div class="exp-location">📍 Rogersville, TN, USA · Automotive Supplier</div>
+                <ul class="exp-bullets">
+                  <li>Assisted with developing revenue and expense forecast models and analysing actual vs. budget results for a major US automotive supplier.</li>
+                  <li>Supported the Controller in developing process narratives and identifying internal control gaps.</li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="exp-tag">Financial Forecasting</span>
+                  <span class="exp-tag">Automotive</span>
+                  <span class="exp-tag">Internal Controls</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Rane Group Management Associate -->
+            <div class="exp-item">
+              <div class="exp-left">
+                <span class="exp-date">2001 – 2002</span>
+                <div class="exp-logo-wrap">
+                  <img src="https://logo.clearbit.com/ranegroup.com" alt="Rane Group" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';" />
+                  <span class="company-badge" style="display:none;">Rane</span>
+                </div>
+              </div>
+              <div class="exp-right">
+                <h3>Management Associate</h3>
+                <div class="exp-company">
+                  <a href="https://www.ranegroup.com" target="_blank">Rane Group ↗</a>
+                </div>
+                <div class="exp-location">📍 Madras, India · Auto-Component Manufacturer</div>
+                <ul class="exp-bullets">
+                  <li>Structured rotation programme across three manufacturing facilities — from raw material procurement to shipping finished goods — building deep operational intuition that would later inform CEO-level decisions.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Arthur Andersen -->
+            <div class="exp-item">
+              <div class="exp-left">
+                <span class="exp-date">1997 – 2001</span>
+                <div class="exp-logo-wrap">
+                  <span class="company-badge">Arthur Andersen</span>
+                </div>
+              </div>
+              <div class="exp-right">
+                <h3>Senior Consultant</h3>
+                <div class="exp-company">Arthur Andersen, LLP</div>
+                <div class="exp-location">📍 Madras, India · Global Consulting &amp; Audit Firm</div>
+                <ul class="exp-bullets">
+                  <li>Planned and led audit assignments and due diligence reviews across multiple industries and geographies.</li>
+                  <li>Developed market entry strategies for global clients entering India; extensively engaged with the Central Bank of India and secured federal investment approvals enabling clients to invest over <strong>$800M in aggregate</strong>.</li>
+                  <li>Restructured a contract for a <strong>$30B global energy company</strong>, resulting in tax savings of $1M.</li>
+                  <li>Developed a strategic worldwide entity-structuring model for a <strong>$300M global software company</strong>, delivering tax savings of 25%.</li>
+                  <li>Interacted with senior leadership of Fortune 500 companies, government officials, and regulators as a trusted advisor at the outset of India's economic liberalisation.</li>
+                </ul>
+                <div class="exp-tags">
+                  <span class="exp-tag">Consulting</span>
+                  <span class="exp-tag">Audit</span>
+                  <span class="exp-tag">Tax Structuring</span>
+                  <span class="exp-tag">Market Entry</span>
+                  <span class="exp-tag">Due Diligence</span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /exp-list -->
+        </div><!-- /panel-inner -->
+      </div><!-- /panel-experience -->
+
+
+      <!-- ── PANEL 2: EDUCATION ── -->
+      <div class="box-panel" id="panel-education">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div class="panel-header-icon">🎓</div>
+            <div>
+              <h2>Education</h2>
+              <p>A lifelong commitment to learning — across continents, disciplines, and decades</p>
+            </div>
+          </div>
+
+          <div class="edu-list">
+
+            <!-- ISU -->
+            <div class="edu-item featured">
+              <div class="edu-header">
+                <h3>Master of Space Studies (MSS)</h3>
+                <span class="edu-dates">Sep 2025 – Jul 2026</span>
+              </div>
+              <div class="edu-school">
+                <a href="https://www.isunet.edu" target="_blank">International Space University (ISU) ↗</a>
+              </div>
+              <div class="edu-location">📍 Strasbourg, France</div>
+              <div class="edu-body">
+                <p>Specialising in <strong>Space Entrepreneurship, Economics, Commercial Space Strategy, Policy &amp; Law</strong> — the disciplines at the heart of the new space economy. ISU brings together the world's leading minds in space science, engineering, business, and policy for an intensive, international programme.</p>
+
+                <div class="edu-project">
+                  <span class="edu-project-label">Individual Research Project</span>
+                  <div class="edu-project-title">Impact of Philosophy &amp; Theology on Space Exploration in the 21st Century</div>
+                  <div class="edu-project-desc">
+                    An interdisciplinary study examining how philosophy and theology have shaped — and continue to shape — humanity's approach to space exploration. The paper traces contributions from Konstantin Tsiolkovsky and Carl Sagan, and analyses perspectives from Christianity, Buddhism, and Hinduism's cyclical cosmology. Its central argument: science clarifies the <em>what</em> of the universe, while philosophy and theology provide the <em>why</em> — and both are essential for humanity's enduring success beyond Earth. Published January 2026.
+                  </div>
+                </div>
+
+                <div class="edu-project" style="margin-top:12px;">
+                  <span class="edu-project-label">Team Project</span>
+                  <div class="edu-project-title">Global Communication Strategy for Deep Space Exploration</div>
+                  <div class="edu-project-desc">
+                    Contributing to an international, multidisciplinary ISU team developing a global communication strategy for deep space missions — addressing signal latency, data architecture, multi-stakeholder coordination, and public engagement across interplanetary distances.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Arsha Vidya -->
+            <div class="edu-item philosophy">
+              <div class="edu-header">
+                <h3>Indian Philosophy of Non-Duality (Advaita Vedanta)</h3>
+                <span class="edu-dates">Jan 2020 – Jul 2022</span>
+              </div>
+              <div class="edu-school">
+                <a href="https://arshavidya.in" target="_blank">Arsha Vidya Gurukulam ↗</a>
+              </div>
+              <div class="edu-location">📍 India</div>
+              <div class="edu-body">
+                <p>A structured two-year immersion in Advaita Vedanta — the Indian philosophical tradition of Non-Duality — with emphasis on logic, ethics, and analytical clarity. Study included the <strong>Bhagavad Gita</strong>, Upanishadic texts, and the teachings of Adi Shankaracharya.</p>
+                <p>This programme profoundly strengthened reflective and values-based decision-making, enhanced systems-level critical thinking, and cultivated the equanimity and clarity essential for leadership in complex, high-stakes environments.</p>
+              </div>
+            </div>
+
+            <!-- Keller -->
+            <div class="edu-item">
+              <div class="edu-header">
+                <h3>Master of Accounting and Financial Management</h3>
+                <span class="edu-dates">Feb 2003 – Jul 2005</span>
+              </div>
+              <div class="edu-school">
+                <a href="https://www.devry.edu/masters-degrees/keller-school-of-management.html" target="_blank">Keller Graduate School of Management, DeVry University ↗</a>
+              </div>
+              <div class="edu-location">📍 Chicago, IL, USA</div>
+              <div class="edu-body">
+                <p>Advanced postgraduate study in accounting, financial management, and business strategy — providing the technical and analytical foundation for senior finance and operations roles at KPMG, Thoratec, and beyond.</p>
+              </div>
+            </div>
+
+            <!-- ICAI -->
+            <div class="edu-item">
+              <div class="edu-header">
+                <h3>Certified (Inter) Chartered Accountant</h3>
+                <span class="edu-dates">Jun 1997 – May 2001</span>
+              </div>
+              <div class="edu-school">
+                <a href="https://www.icai.org" target="_blank">Institute of Chartered Accountants of India (ICAI) ↗</a>
+              </div>
+              <div class="edu-location">📍 India</div>
+              <div class="edu-body">
+                <p>Rigorous professional qualification in accounting, taxation, auditing, and financial law — one of the most demanding professional credentials in India, forming the bedrock of a career built on financial precision and integrity.</p>
+              </div>
+            </div>
+
+            <!-- Loyola -->
+            <div class="edu-item">
+              <div class="edu-header">
+                <h3>Bachelor of Commerce (BCom)</h3>
+                <span class="edu-dates">Jun 1994 – May 1997</span>
+              </div>
+              <div class="edu-school">Loyola College, University of Madras</div>
+              <div class="edu-location">📍 Madras (Chennai), India</div>
+              <div class="edu-body">
+                <p>Undergraduate study in commerce, economics, and business at one of India's most prestigious liberal arts institutions — cultivating a love for critical thinking and intellectual rigour that has never left.</p>
+              </div>
+            </div>
+
+            <!-- DAV -->
+            <div class="edu-item">
+              <div class="edu-header">
+                <h3>Higher Secondary School Certificate</h3>
+                <span class="edu-dates">Until 1994</span>
+              </div>
+              <div class="edu-school">DAV Higher Secondary School</div>
+              <div class="edu-location">📍 India</div>
+              <div class="edu-body">
+                <p>Foundational schooling at DAV — an institution rooted in the values of the Dayananda Anglo-Vedic tradition, blending academic discipline with cultural and ethical depth.</p>
+              </div>
+            </div>
+
+          </div><!-- /edu-list -->
+        </div>
+      </div><!-- /panel-education -->
+
+
+      <!-- ── PANEL 3: KNOWING VINAY ── -->
+      <div class="box-panel" id="panel-knowing">
+        <div class="panel-inner">
+          <div class="panel-header">
+            <div class="panel-header-icon">🌌</div>
+            <div>
+              <h2>Knowing Vinay</h2>
+              <p>The thinker, the sportsman, the philosopher, the explorer</p>
+            </div>
+          </div>
+
+          <div class="knowing-grid">
+
+            <!-- Philosophy -->
+            <div class="knowing-block">
+              <h3><span class="kicon">🧘</span> Philosophy &amp; Vedanta</h3>
+              <div class="knowing-divider"></div>
+              <p>My love for philosophy is not academic — it is lived. Between 2020 and 2022, I spent two years at <strong>Arsha Vidya Gurukulam</strong> studying <strong>Advaita Vedanta</strong>, the Indian philosophy of Non-Duality. Rooted in the Upanishads and synthesised by Adi Shankaracharya, Advaita teaches that the distinctions we perceive between self and world, individual and cosmos, are ultimately appearances upon a single, undivided consciousness.</p>
+              <p>The <strong>Bhagavad Gita</strong> holds a special place in my thinking — particularly its teachings on <em>nishkama karma</em> (action without attachment to outcomes) and <em>viveka</em> (discernment). These principles are not just spiritual; they are profoundly practical guides to leadership. A leader who acts without ego-attachment, who can distinguish the essential from the ephemeral, and who remains steady amid uncertainty — that is the leader the Gita describes, and the kind of leader I strive to be.</p>
+              <blockquote class="quote">
+                "You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions." — Bhagavad Gita, 2.47
+              </blockquote>
+              <p>This philosophical foundation directly informs my ISU research paper on the <em>Impact of Philosophy &amp; Theology on Space Exploration</em> — my argument that as humanity ventures into the cosmos, we need not only rockets and algorithms, but wisdom traditions that tell us <em>why</em> we go, and <em>how</em> we should behave when we get there.</p>
+            </div>
+
+            <!-- Professional Memberships -->
+            <div class="knowing-block">
+              <h3><span class="kicon">🤝</span> Professional Memberships &amp; Leadership</h3>
+              <div class="knowing-divider"></div>
+              <p>Throughout my career I have been privileged to engage with some of the world's and India's most dynamic leadership communities:</p>
+              <div class="memberships">
+                <div class="membership-badge">🌍 YPO — Young Presidents' Organization <em>(Past Member)</em></div>
+                <div class="membership-badge">🏭 CII — Confederation of Indian Industry</div>
+                <div class="membership-badge">⚙️ ACMA — Automotive Component Manufacturers Association</div>
+                <div class="membership-badge">🤝 SOCHAM — Southern Chamber of Commerce</div>
+              </div>
+              <p style="margin-top:16px;">The <strong>Young Presidents' Organization</strong> in particular was a formative experience — a global network of CEOs and business leaders committed to learning from one another, leading with integrity, and making a difference in their communities and beyond.</p>
+            </div>
+
+            <!-- Sport -->
+            <div class="knowing-block">
+              <h3><span class="kicon">🏏</span> Sport — Cricket, Golf &amp; Running</h3>
+              <div class="knowing-divider"></div>
+              <p>I grew up with cricket — the game that teaches patience, strategy, and the art of reading conditions. A well-played innings, like a well-run business, requires knowing when to attack and when to defend.</p>
+              <p>Golf came later, and with it a different lesson: <em>the course doesn't forgive inconsistency</em>. Neither does the market. I love golf for its meditative quality — just you, the course, and an honest reckoning with your own technique.</p>
+              <p>I have run <strong>half marathons</strong> — 21 kilometres that teach you more about discipline, pacing, and resilience than almost any boardroom experience. The last few kilometres are pure philosophy: the mind wants to stop; the body knows it can continue; and something deeper — call it will, or purpose — keeps you moving.</p>
+              <div class="interests-row">
+                <span class="interest-pill">🏏 Cricket</span>
+                <span class="interest-pill">⛳ Golf</span>
+                <span class="interest-pill">🏃 Half Marathon</span>
+              </div>
+            </div>
+
+            <!-- Music & Food -->
+            <div class="knowing-block">
+              <h3><span class="kicon">🎵</span> Music, Food &amp; the Art of Living</h3>
+              <div class="knowing-divider"></div>
+              <p>Music is my constant companion. I am moved by the mathematical precision of Carnatic classical music — where a raga is both a scientific structure and an emotional universe — and equally by the improvisational freedom of jazz, where listening to others is as important as playing your own part. Not unlike leadership itself.</p>
+              <p>Food, for me, is philosophy made edible. Every cuisine is a civilisation's answer to the question of what matters: what we grow, how we prepare it, whom we share it with. I am an enthusiastic explorer of kitchens across the world — from the spice-forward curries of Tamil Nadu to the delicate terroir-driven cuisine of Alsace, where I now study and live.</p>
+              <div class="interests-row">
+                <span class="interest-pill">🎵 Carnatic Music</span>
+                <span class="interest-pill">🎷 Jazz</span>
+                <span class="interest-pill">🍛 World Cuisine</span>
+                <span class="interest-pill">🍷 Food & Culture</span>
+              </div>
+            </div>
+
+          </div><!-- /knowing-grid -->
+        </div>
+      </div><!-- /panel-knowing -->
+
+    </div><!-- /container -->
+  </section><!-- /boxes-section -->
+
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">VL<span>.</span></div>
+        <ul class="footer-links">
+          <li><a href="mailto:lakshmanvinay@gmail.com">lakshmanvinay@gmail.com</a></li>
+          <li><a href="https://www.linkedin.com/in/vinay-lakshman" target="_blank">LinkedIn</a></li>
+        </ul>
+        <span class="footer-copy">© 2026 Vinay Lakshman</span>
+        <span class="footer-quote">"The cosmos is within us." — Carl Sagan</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
