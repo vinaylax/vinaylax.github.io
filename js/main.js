@@ -94,6 +94,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const placeholder  = document.getElementById('photo-placeholder');
 
   if (photoBox && heroImg && placeholder) {
+    heroImg.addEventListener('error', () => {
+      if (!heroImg.dataset.fallbackApplied) {
+        heroImg.dataset.fallbackApplied = 'true';
+        heroImg.src = './VinayPic.jpg';
+        return;
+      }
+      heroImg.style.display = 'none';
+      placeholder.style.display = 'flex';
+    });
+
     photoBox.style.cursor = 'pointer';
     photoBox.title = 'Click to upload your photo';
 
