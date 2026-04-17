@@ -88,45 +88,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── Photo upload (click placeholder to upload) ──
-  const photoBox     = document.getElementById('hero-photo-box');
-  const heroImg      = document.getElementById('hero-img');
-  const placeholder  = document.getElementById('photo-placeholder');
-
-  if (photoBox && heroImg && placeholder) {
-    heroImg.addEventListener('error', () => {
-      if (!heroImg.dataset.fallbackApplied) {
-        heroImg.dataset.fallbackApplied = 'true';
-        heroImg.src = `${window.location.origin}/VinayPic.jpg`;
-        return;
-      }
-      heroImg.style.display = 'none';
-      placeholder.style.display = 'flex';
-    });
-
-    photoBox.style.cursor = 'pointer';
-    photoBox.title = 'Click to upload your photo';
-
-    photoBox.addEventListener('click', () => {
-      const input = document.createElement('input');
-      input.type  = 'file';
-      input.accept = 'image/*';
-      input.onchange = (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-          heroImg.src = ev.target.result;
-          heroImg.style.display = 'block';
-          placeholder.style.display = 'none';
-          photoBox.style.border = 'none';
-          photoBox.style.cursor = 'default';
-          photoBox.title = '';
-        };
-        reader.readAsDataURL(file);
-      };
-      input.click();
-    });
-  }
-
 });
