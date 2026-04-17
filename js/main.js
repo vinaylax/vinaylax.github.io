@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     heroImg.addEventListener('error', () => {
       if (!heroImg.dataset.fallbackApplied) {
         heroImg.dataset.fallbackApplied = 'true';
-        heroImg.src = './VinayPic.jpg';
+        heroImg.src = `${window.location.origin}/VinayPic.jpg`;
         return;
       }
       heroImg.style.display = 'none';
