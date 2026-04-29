@@ -16,6 +16,7 @@
     <div class="container">
       <div class="nav-logo">VL<span>.</span></div>
       <div class="nav-right">
+        <a href="VL Resume.pdf" target="_blank" class="nav-btn">Resume ↓</a>
         <a href="mailto:lakshmanvinay@gmail.com" class="nav-btn">Contact Me</a>
         <a href="https://www.linkedin.com/in/vinay-lakshman" target="_blank" class="nav-btn primary">LinkedIn ↗</a>
       </div>
@@ -72,6 +73,7 @@
         <div class="hero-actions">
           <a href="mailto:lakshmanvinay@gmail.com" class="btn btn-primary">Get in Touch →</a>
           <a href="https://www.linkedin.com/in/vinay-lakshman" target="_blank" class="btn btn-ghost">LinkedIn Profile ↗</a>
+          <a href="VL Resume.pdf" target="_blank" class="btn btn-ghost">Download Resume ↓</a>
         </div>
       </div>
 
@@ -83,24 +85,117 @@
     <div class="container">
 
       <!-- Triggers -->
+      <style>
+        .space-card {
+          position: relative;
+          background-size: cover;
+          background-position: center;
+          border: none !important;
+          min-height: 220px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-end;
+          padding: 0 !important;
+          overflow: hidden;
+          border-radius: 16px;
+        }
+        .space-card::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to bottom, rgba(10,20,40,0.15) 0%, rgba(10,20,40,0.75) 60%, rgba(10,20,40,0.92) 100%);
+          z-index: 1;
+          border-radius: 16px;
+          transition: all 0.35s ease;
+        }
+        .space-card:hover::after {
+          background: linear-gradient(to bottom, rgba(10,20,40,0.05) 0%, rgba(10,20,40,0.6) 50%, rgba(10,20,40,0.85) 100%);
+        }
+        .space-card .box-icon,
+        .space-card .box-title,
+        .space-card .box-subtitle,
+        .space-card .box-arrow {
+          position: relative;
+          z-index: 2;
+        }
+        .space-card .box-icon {
+          font-size: 2rem;
+          margin-bottom: 8px;
+          filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+        }
+        .space-card .box-title {
+          color: #ffffff !important;
+          font-size: 1.25rem;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+          margin-bottom: 6px;
+        }
+        .space-card .box-subtitle {
+          color: rgba(255,255,255,0.85) !important;
+          font-size: 0.82rem;
+          text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+          max-width: 220px;
+        }
+        .space-card .box-arrow {
+          color: rgba(255,255,255,0.7) !important;
+          margin-top: 10px;
+          margin-bottom: 4px;
+        }
+        .space-card-content {
+          position: relative;
+          z-index: 2;
+          padding: 24px 20px 20px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .space-card .planet-label {
+          position: absolute;
+          top: 12px;
+          right: 14px;
+          z-index: 2;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.5);
+          text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+      </style>
+
       <div class="boxes-grid">
-        <div class="box-trigger fade-in" data-target="panel-experience">
-          <div class="box-icon">💼</div>
-          <div class="box-title">Experience</div>
-          <div class="box-subtitle">20+ years across 4 continents — from Big 4 consulting to CEO</div>
-          <div class="box-arrow">▾</div>
+        <div class="box-trigger space-card fade-in" data-target="panel-experience"
+             style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg');">
+          <span class="planet-label">Earth</span>
+          <div class="space-card-content">
+            <div class="box-icon">💼</div>
+            <div class="box-title">Experience</div>
+            <div class="box-subtitle">20+ years across 4 continents — from Big 4 consulting to CEO</div>
+            <div class="box-arrow">▾</div>
+          </div>
         </div>
-        <div class="box-trigger fade-in" data-target="panel-education">
-          <div class="box-icon">🎓</div>
-          <div class="box-title">Education</div>
-          <div class="box-subtitle">ISU Strasbourg · Keller · ICAI · Loyola · DAV</div>
-          <div class="box-arrow">▾</div>
+        <div class="box-trigger space-card fade-in" data-target="panel-education"
+             style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e1/FullMoon2010.jpg');">
+          <span class="planet-label">Moon</span>
+          <div class="space-card-content">
+            <div class="box-icon">🎓</div>
+            <div class="box-title">Education</div>
+            <div class="box-subtitle">ISU Strasbourg · Keller · ICAI · Loyola · DAV</div>
+            <div class="box-arrow">▾</div>
+          </div>
         </div>
-        <div class="box-trigger fade-in" data-target="panel-knowing">
-          <div class="box-icon">🌌</div>
-          <div class="box-title">Knowing Vinay</div>
-          <div class="box-subtitle">Philosophy, sport, culture, memberships &amp; passions</div>
-          <div class="box-arrow">▾</div>
+        <div class="box-trigger space-card fade-in" data-target="panel-knowing"
+             style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg');">
+          <span class="planet-label">Mars</span>
+          <div class="space-card-content">
+            <div class="box-icon">🌌</div>
+            <div class="box-title">Knowing Vinay</div>
+            <div class="box-subtitle">Philosophy, sport, culture, memberships &amp; passions</div>
+            <div class="box-arrow">▾</div>
+          </div>
         </div>
       </div>
 
