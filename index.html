@@ -80,6 +80,119 @@
     </div>
   </section>
 
+  <!-- ── IAC 2026 ANNOUNCEMENT ── -->
+  <section class="iac-banner">
+    <style>
+      .iac-banner {
+        background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 40%, #0f2847 100%);
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        border-top: 3px solid #C8A84C;
+        border-bottom: 3px solid #C8A84C;
+      }
+      .iac-banner::before {
+        content: '';
+        position: absolute; inset: 0;
+        background:
+          radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.15) 0%, transparent 60%),
+          radial-gradient(ellipse at 80% 30%, rgba(74,144,217,0.12) 0%, transparent 50%);
+        pointer-events: none;
+      }
+      .iac-inner {
+        position: relative; z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding: 44px 0;
+      }
+      .iac-badge {
+        flex-shrink: 0;
+        width: 90px; height: 90px;
+        border-radius: 50%;
+        border: 2px solid #C8A84C;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        background: rgba(201,168,76,0.1);
+      }
+      .iac-badge-label {
+        font-size: 0.6rem; font-weight: 700; letter-spacing: 2px;
+        text-transform: uppercase; color: #C8A84C;
+      }
+      .iac-badge-year {
+        font-size: 1.6rem; font-weight: 800; color: #C8A84C; line-height: 1;
+      }
+      .iac-content { flex: 1; }
+      .iac-eyebrow {
+        font-size: 0.7rem; font-weight: 700; letter-spacing: 2.5px;
+        text-transform: uppercase; color: #C8A84C; margin-bottom: 8px;
+        display: block;
+      }
+      .iac-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem; font-weight: 600; font-style: italic;
+        color: #fff; line-height: 1.5; margin-bottom: 10px;
+      }
+      .iac-details {
+        font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.7;
+      }
+      .iac-details strong { color: rgba(255,255,255,0.95); }
+      .iac-tag {
+        display: inline-block; font-size: 0.7rem; font-weight: 600;
+        letter-spacing: 1px; padding: 4px 12px; border-radius: 20px;
+        background: rgba(201,168,76,0.15); color: #C8A84C;
+        border: 1px solid rgba(201,168,76,0.3); margin-top: 12px;
+        margin-right: 6px;
+      }
+      @media (max-width: 768px) {
+        .iac-inner { flex-direction: column; text-align: center; gap: 20px; }
+      }
+    </style>
+    <div class="container">
+      <div class="iac-inner fade-in">
+        <div class="iac-badge">
+          <span class="iac-badge-label">IAC</span>
+          <span class="iac-badge-year">2026</span>
+        </div>
+        <div class="iac-content">
+          <span class="iac-eyebrow">Accepted — 77th International Astronautical Congress · Antalya, Turkey</span>
+          <div class="iac-title">"Philosophy, Theology, and the Search for Extraterrestrial Intelligence: Ethical and Cultural Frameworks for a Post-Detection World"</div>
+          <div class="iac-details">
+            <strong>10-minute oral presentation</strong> · 55th IAA SETI Symposium · Session: SETI and Society — Exploring the Human Dimension · 6 October 2026
+          </div>
+          <span class="iac-tag">Individual Research Paper</span>
+          <span class="iac-tag">SCOPUS &amp; EI Compendex Indexed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SEEKING OPPORTUNITIES ── -->
+  <section class="opportunity-strip">
+    <style>
+      .opportunity-strip {
+        background: linear-gradient(90deg, #4a90d9, #6bb0f0);
+        padding: 20px 0;
+        text-align: center;
+      }
+      .opportunity-strip p {
+        color: #fff; font-size: 0.95rem; font-weight: 500;
+        letter-spacing: 0.3px; margin: 0;
+      }
+      .opportunity-strip strong { font-weight: 700; }
+      .opportunity-strip a {
+        color: #fff; text-decoration: underline;
+        font-weight: 700;
+      }
+    </style>
+    <div class="container">
+      <p>
+        <strong>Available from July 2026</strong> — Seeking senior roles in operations, strategy, and finance within the commercial space sector.
+        <a href="mailto:lakshmanvinay@gmail.com">Get in touch →</a>
+      </p>
+    </div>
+  </section>
+
 <!-- ── THREE BOXES ── -->
   <section class="boxes-section">
     <div class="container">
@@ -450,21 +563,36 @@
               </div>
               <div class="edu-location">📍 Strasbourg, France</div>
               <div class="edu-body">
-                <p>Specialising in <strong>Space Entrepreneurship, Economics, Commercial Space Strategy, Policy &amp; Law</strong> — the disciplines at the heart of the new space economy. ISU brings together the world's leading minds in space science, engineering, business, and policy for an intensive, international programme.</p>
+                <p>Specialising in <strong>Commercial Space Economics, Mission Design, Launch Vehicle Architecture, Orbital Mechanics, and Space Project Management</strong>. Hands-on work in Model-Based Systems Engineering (MBSE), AI for Earth Observation, and CubeSat integration. Two papers accepted at IAC 2026 — one individual, one team.</p>
 
-                <div class="edu-project">
-                  <span class="edu-project-label">Individual Research Project</span>
-                  <div class="edu-project-title">Impact of Philosophy &amp; Theology on Space Exploration in the 21st Century</div>
+                <div class="edu-project" style="background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); border-radius:10px; padding:14px 16px; margin-bottom:12px;">
+                  <span class="edu-project-label" style="color:#C8A84C;">Accepted at IAC 2026 · Individual Paper</span>
+                  <div class="edu-project-title">Philosophy, Theology, and the Search for Extraterrestrial Intelligence: Ethical and Cultural Frameworks for a Post-Detection World</div>
                   <div class="edu-project-desc">
-                    An interdisciplinary study examining how philosophy and theology have shaped — and continue to shape — humanity's approach to space exploration. The paper traces contributions from Konstantin Tsiolkovsky and Carl Sagan, and analyses perspectives from Christianity, Buddhism, and Hinduism's cyclical cosmology. Its central argument: science clarifies the <em>what</em> of the universe, while philosophy and theology provide the <em>why</em> — and both are essential for humanity's enduring success beyond Earth. Published January 2026.
+                    Accepted for a 10-minute oral presentation at the 77th International Astronautical Congress (Antalya, Turkey, October 2026) — 55th IAA SETI Symposium. SCOPUS and EI Compendex indexed.
                   </div>
                 </div>
 
                 <div class="edu-project" style="margin-top:12px;">
-                  <span class="edu-project-label">Team Project</span>
+                  <span class="edu-project-label">Accepted at IAC 2026 · Team Project</span>
                   <div class="edu-project-title">Global Communication Strategy for Deep Space Exploration</div>
                   <div class="edu-project-desc">
-                    Contributing to an international, multidisciplinary ISU team developing a global communication strategy for deep space missions — addressing signal latency, data architecture, multi-stakeholder coordination, and public engagement across interplanetary distances.
+                    Report Head on a 20-person John Templeton Foundation–sponsored team producing a 15-year, 3-phase, 91-strategy communication roadmap for sustaining global public engagement in deep space human exploration.
+                  </div>
+                </div>
+
+                <div class="edu-project" style="margin-top:12px;">
+                  <span class="edu-project-label">Space Business &amp; Management · Group Project</span>
+                  <div class="edu-project-title">SovereignEye — 16-Satellite ITAR-Free EO Constellation</div>
+                  <div class="edu-project-desc">
+                    Financial architect for a $102M sovereign Earth observation startup concept. Designed the full lifecycle cost model, Series A funding pitch to IN-SPACe (₹95 Crore), and dual France-India HQ strategy. 16 operational satellites with on-board AI for real-time intelligence.
+                  </div>
+                </div>
+
+                <div class="edu-project" style="margin-top:12px;">
+                  <span class="edu-project-label">Additional ISU Projects</span>
+                  <div class="edu-project-desc">
+                    1U CubeSat Eyesat-1 integration &amp; V&amp;V · Orbital Mission Design in STK (Level 1 certified) · AI for Earth Observation using GEE &amp; Sentinel-2 · European Space Defense Administration governance framework · Mars Drone &amp; Robotic Competition · NGC 4852 astronomical data mining with Gaia DR3
                   </div>
                 </div>
               </div>
