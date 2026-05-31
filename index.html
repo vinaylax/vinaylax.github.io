@@ -43,7 +43,31 @@
     .nav-links a:hover { color: var(--text); text-decoration: none; }
 
     /* ── HERO ── */
-    .hero { padding: 72px 0 56px; border-bottom: 1px solid var(--border); }
+    .hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+      background: #0a1628 url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Artemis_1_Launch_%28NHQ202211160029%29.jpg/1280px-Artemis_1_Launch_%28NHQ202211160029%29.jpg') center/cover no-repeat;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(10,22,40,0.82) 0%, rgba(10,22,40,0.92) 60%, rgba(245,243,238,1) 100%);
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero .hero-eyebrow { color: rgba(201,168,76,0.9); }
+    .hero h1 { color: #fff; }
+    .hero h1 em { color: #C8A84C; }
+    .hero-intro { color: rgba(255,255,255,0.75); }
+    .hero .btn-primary { background: #C8A84C; color: #0a1628; }
+    .hero .btn-primary:hover { background: #d4a82a; }
+    .hero .btn-outline { border-color: rgba(255,255,255,0.3); color: #fff; }
+    .hero .btn-outline:hover { border-color: #fff; }
+    .hero .meta-label { color: rgba(255,255,255,0.5); }
+    .hero .meta-value { color: rgba(255,255,255,0.9); }
+    .hero .meta-value.highlight { color: #C8A84C; }
+    .hero .meta-row { border-bottom-color: rgba(255,255,255,0.1); }
+    .hero .hero-meta-photo { border-color: rgba(201,168,76,0.4); }
     .hero-layout { display: grid; grid-template-columns: 1fr 300px; gap: 56px; align-items: start; }
     .hero-eyebrow { font-size: 0.78rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.5px; display: block; margin-bottom: 12px; }
     .hero h1 { font-family: var(--font-serif); font-size: 2.4rem; font-weight: 600; line-height: 1.25; color: var(--text); margin-bottom: 20px; }
