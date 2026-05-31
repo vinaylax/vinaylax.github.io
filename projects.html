@@ -4,439 +4,315 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects — Vinay Lakshman</title>
-  <meta name="description" content="Vinay Lakshman's research and projects — philosophy, space exploration, and space commercialisation." />
+  <meta name="description" content="ISU projects, research, and professional work by Vinay Lakshman." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    .projects-intro { max-width: 680px; margin: 0 auto 72px; text-align: center; }
-    .projects-intro p { color: var(--color-text-light); font-size: 1.05rem; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #f5f3ee; --bg-card: #ffffff; --text: #1a1a1a; --text-secondary: #5a5a56;
+      --text-muted: #8a8a84; --accent: #2c3e50; --accent-blue: #3b6fa0; --gold: #b8941f;
+      --border: #ddd9d0; --border-light: #eae6dd;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --max-width: 1100px; --radius: 8px;
+    }
+    body { font-family: var(--font-sans); background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.7; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
 
-    /* Featured Project */
-    .project-featured {
-      background: var(--color-primary);
-      border-radius: 20px;
-      overflow: hidden;
-      margin-bottom: 48px;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-    }
-    .project-featured-visual {
-      padding: 64px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-featured-visual::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 50%, rgba(74, 144, 217, 0.2) 0%, transparent 70%);
-    }
-    .featured-visual-content { text-align: center; position: relative; z-index: 2; }
-    .featured-visual-content .big-quote {
-      font-family: var(--font-accent);
-      font-style: italic;
-      font-size: 1.4rem;
-      color: rgba(255,255,255,0.9);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-    .featured-visual-content .big-quote em { color: var(--color-gold); font-style: normal; }
-    .orbit-visual {
-      width: 120px; height: 120px;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 50%;
-      margin: 32px auto;
-      position: relative;
-      animation: spin 20s linear infinite;
-    }
-    .orbit-visual::before {
-      content: '✦';
-      position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
-      color: var(--color-gold); font-size: 1rem;
-    }
-    .orbit-dot {
-      width: 60px; height: 60px;
-      background: radial-gradient(circle, rgba(74,144,217,0.4), transparent);
-      border-radius: 50%;
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    nav { padding: 20px 0; border-bottom: 1px solid var(--border); background: var(--bg); position: sticky; top: 0; z-index: 100; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; }
+    .nav-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--text); }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-secondary); }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); text-decoration: none; }
 
-    .project-featured-content {
-      padding: 64px 48px;
-      background: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .project-featured-content .project-tag { margin-bottom: 12px; }
-    .project-featured-content h2 { font-size: 1.5rem; margin-bottom: 16px; }
-    .project-featured-content p { color: var(--color-text-light); font-size: 0.95rem; margin-bottom: 16px; line-height: 1.75; }
+    .page-hero { padding: 56px 0 40px; border-bottom: 1px solid var(--border); }
+    .page-hero h1 { font-family: var(--font-serif); font-size: 2rem; font-weight: 600; margin-bottom: 10px; }
+    .page-hero p { font-size: 0.95rem; color: var(--text-secondary); max-width: 650px; }
 
-    .key-themes { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
-    .theme-pill {
-      font-size: 0.78rem; padding: 5px 14px; border-radius: 20px;
-      background: var(--color-bg-alt); color: var(--color-text-light);
-      font-weight: 500; border: 1px solid var(--color-border);
-    }
+    .section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+    .section:last-of-type { border-bottom: none; }
+    .section-number { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px; display: block; }
+    .section-title { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; color: var(--text); margin-bottom: 28px; }
 
-    /* Secondary Projects */
-    .secondary-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-      margin-bottom: 48px;
-    }
-    .project-card-small {
-      background: #fff;
-      border: 1px solid var(--color-border);
-      border-radius: 16px;
-      padding: 36px;
-      transition: all var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card-small::after {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
-      transform: scaleX(0); transform-origin: left;
-      transition: transform var(--transition);
-    }
-    .project-card-small:hover::after { transform: scaleX(1); }
-    .project-card-small:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.07); transform: translateY(-4px); }
-    .project-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
-    .project-card-small .project-tag { margin-bottom: 10px; }
-    .project-card-small h3 { font-size: 1.1rem; margin-bottom: 12px; }
-    .project-card-small p { color: var(--color-text-light); font-size: 0.9rem; line-height: 1.7; }
-    .project-card-small .project-meta { margin-top: 20px; font-size: 0.82rem; color: var(--color-text-light); }
+    .project-row { display: grid; grid-template-columns: 280px 1fr; gap: 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 20px; transition: all 0.2s; }
+    .project-row:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); transform: translateY(-2px); }
+    .project-row.featured { border-left: 4px solid var(--accent-blue); }
+    .project-row.iac { border-left: 4px solid var(--gold); }
+    .project-img { width: 100%; height: 100%; min-height: 200px; object-fit: cover; display: block; }
+    .project-body { padding: 24px 28px 24px 0; display: flex; flex-direction: column; justify-content: center; }
+    .project-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; display: block; }
+    .project-tag.gold { color: var(--gold); }
+    .project-tag.blue { color: var(--accent-blue); }
+    .project-title { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.4; }
+    .project-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.7; }
+    .project-pills { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px; }
+    .pill { font-size: 0.65rem; padding: 3px 9px; border-radius: 4px; background: #f0ede6; color: var(--text-secondary); font-weight: 500; }
+    .pill.gold { background: rgba(184,148,31,0.1); color: var(--gold); }
+    .project-links { display: flex; gap: 14px; margin-top: 10px; }
+    .project-links a { font-size: 0.8rem; font-weight: 600; }
 
-    /* Philosophical Quotes */
-    .quotes-section { background: var(--color-primary); padding: 80px 0; }
-    .quotes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-    .philosophy-quote {
-      padding: 32px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      transition: all var(--transition);
-    }
-    .philosophy-quote:hover { background: rgba(255,255,255,0.04); border-color: rgba(201,168,76,0.3); }
-    .philosophy-quote .q-text {
-      font-family: var(--font-accent);
-      font-style: italic;
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-    .philosophy-quote .q-author { font-size: 0.82rem; color: var(--color-gold); font-weight: 600; }
+    /* Small cards for secondary projects */
+    .projects-grid-small { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .project-card-sm { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.2s; }
+    .project-card-sm:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); transform: translateY(-2px); }
+    .project-card-sm-img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .project-card-sm-body { padding: 20px; }
 
-    @media (max-width: 968px) {
-      .project-featured { grid-template-columns: 1fr; }
-      .project-featured-visual { min-height: 280px; }
-      .secondary-grid { grid-template-columns: 1fr; }
-      .quotes-grid { grid-template-columns: 1fr; }
+    footer { padding: 24px 0; font-size: 0.78rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); }
+    footer span { font-family: var(--font-serif); font-style: italic; display: block; margin-top: 6px; color: var(--text-secondary); }
+
+    @media (max-width: 768px) {
+      .project-row { grid-template-columns: 1fr; }
+      .project-body { padding: 20px; }
+      .projects-grid-small { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar scrolled" id="navbar">
+  <nav>
     <div class="container">
-      <a href="index.html" class="nav-logo">VL<span>.</span></a>
-      <ul class="nav-links" id="nav-links">
+      <a href="index.html" class="nav-name">Vinay Lakshman</a>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
         <li><a href="experience.html">Experience</a></li>
         <li><a href="projects.html" class="active">Projects</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
 
-  <!-- Page Hero -->
   <div class="page-hero">
     <div class="container">
-      <span class="section-label">Research &amp; Projects</span>
-      <h1>Ideas at the Edge of the Known</h1>
-      <p>Research and initiatives that sit at the crossroads of philosophy, space, commerce, and technology.</p>
+      <h1>Projects &amp; Research</h1>
+      <p>Hands-on work spanning Earth observation, mission design, systems engineering, space business, and policy — with two papers accepted at IAC 2026.</p>
     </div>
   </div>
 
-  <!-- Projects -->
-  <section>
+  <!-- FEATURED: IAC Paper -->
+  <section class="section">
     <div class="container">
+      <span class="section-number">01 — Accepted at IAC 2026</span>
+      <h2 class="section-title">Individual Research</h2>
 
-      <div class="projects-intro fade-in">
-        <span class="section-label">Featured Work</span>
-        <h2>Where Deep Thinking Meets the Cosmos</h2>
-        <p>From my ISU individual and team research to my advisory work in SATCOM-connected mobility, these projects reflect the intersection of strategic thinking, philosophical inquiry, and the commercial space frontier.</p>
+      <div class="project-row iac">
+        <img class="project-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Arecibo_Observatory_Aerial_View.jpg/640px-Arecibo_Observatory_Aerial_View.jpg" alt="Radio telescope — SETI research" />
+        <div class="project-body">
+          <span class="project-tag gold">IAC 2026 · 10-min Oral Presentation · SETI Symposium</span>
+          <div class="project-title">Philosophy, Theology, and the Search for Extraterrestrial Intelligence: Ethical and Cultural Frameworks for a Post-Detection World</div>
+          <p class="project-desc">Accepted at the 77th International Astronautical Congress (Antalya, Turkey, October 2026). 55th IAA SETI Symposium — Session: SETI and Society. An interdisciplinary study examining how philosophical and theological frameworks should guide humanity's response to the detection of extraterrestrial intelligence.</p>
+          <div class="project-pills">
+            <span class="pill gold">IAC 2026</span>
+            <span class="pill gold">Oral Presentation</span>
+            <span class="pill gold">SETI</span>
+            <span class="pill gold">Philosophy</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED: Deep Space Comms + SovereignEye -->
+  <section class="section">
+    <div class="container">
+      <span class="section-number">02 — Featured ISU Projects</span>
+      <h2 class="section-title">Team Projects &amp; Space Business</h2>
+
+      <div class="project-row iac">
+        <img class="project-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Canberra_Deep_Space_Communication_Complex_-_panoramio.jpg/640px-Canberra_Deep_Space_Communication_Complex_-_panoramio.jpg" alt="Deep space antenna" />
+        <div class="project-body">
+          <span class="project-tag gold">IAC 2026 · Report Head · JTF-Funded</span>
+          <div class="project-title">Global Communication Roadmap — Deep Space Exploration</div>
+          <p class="project-desc">Report Head on a 20-person John Templeton Foundation–sponsored ISU team producing a 15-year, 3-phase, 91-strategy communication roadmap for sustaining global public engagement in deep space human exploration. Paper accepted at IAC 2026.</p>
+          <div class="project-links">
+            <a href="https://drive.google.com/file/d/1ESlcQaj-u0k48vXAgawEjD2Z5l1EG3up/view" target="_blank">Report &rarr;</a>
+            <a href="https://roadmap-project-five.vercel.app/" target="_blank">Interactive Roadmap &rarr;</a>
+            <a href="https://www.youtube.com/watch?v=nrWKf-AFkLQ" target="_blank">Video &rarr;</a>
+          </div>
+          <div class="project-pills">
+            <span class="pill gold">IAC 2026</span>
+            <span class="pill gold">Report Head</span>
+            <span class="pill gold">JTF Grant</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Featured Project -->
-      <div class="project-featured fade-in">
-        <div class="project-featured-visual">
-          <div class="featured-visual-content">
-            <p class="big-quote">
-              "Science clarifies the <em>what</em>.<br />
-              Philosophy offers the <em>why</em>.<br />
-              Both are needed to reach the stars."
-            </p>
-            <div class="orbit-visual">
-              <div class="orbit-dot"></div>
+      <div class="project-row featured">
+        <img class="project-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/DigitalGlobe_-_satellite.jpg/640px-DigitalGlobe_-_satellite.jpg" alt="Earth observation satellite" />
+        <div class="project-body">
+          <span class="project-tag blue">Space Business · Financial Architect</span>
+          <div class="project-title">SovereignEye — 16-Satellite ITAR-Free EO Constellation</div>
+          <p class="project-desc">Designed the financial architecture for a $102M sovereign Earth observation startup. Led the full lifecycle cost model (ESA WBS), Series A pitch to IN-SPACe (&#8377;95 Cr), and dual France-India HQ strategy. 16 satellites with hyperspectral, thermal IR, and on-board Edge AI. Revenue projection: $50M/year by Year 5, gross margins 82–96%.</p>
+          <div class="project-pills">
+            <span class="pill">$102M</span>
+            <span class="pill">16 Satellites</span>
+            <span class="pill">IN-SPACe</span>
+            <span class="pill">ITAR-Free</span>
+            <span class="pill">Edge AI</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SYSTEMS ENGINEERING & MISSION DESIGN -->
+  <section class="section">
+    <div class="container">
+      <span class="section-number">03 — Systems Engineering &amp; Mission Design</span>
+      <h2 class="section-title">Hardware, Orbits &amp; MBSE</h2>
+
+      <div class="projects-grid-small">
+
+        <div class="project-card-sm">
+          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ISS-56_CubeSats_deployed_from_the_ISS_%282%29.jpg/640px-ISS-56_CubeSats_deployed_from_the_ISS_%282%29.jpg" alt="CubeSats deployed from ISS" />
+          <div class="project-card-sm-body">
+            <span class="project-tag">CubeSat · Subsystem Integration · V&amp;V</span>
+            <div class="project-title">1U CubeSat</div>
+            <p class="project-desc">Hurricane cloud-monitoring prototype. End-to-end integration: payload, OBC, COMMS, ADCS, EPS, ground station. V&amp;V completed. Sun-synchronous orbit at 520 km, 97° retrograde.</p>
+            <div class="project-pills">
+              <span class="pill">CubeSat</span>
+              <span class="pill">V&amp;V</span>
+              <span class="pill">Hardware</span>
             </div>
           </div>
         </div>
-        <div class="project-featured-content">
-          <span class="project-tag">ISU Individual Research · January 2026</span>
-          <h2>Impact of Philosophy &amp; Theology on Space Exploration in the 21st Century</h2>
-          <p>
-            This interdisciplinary paper examines the convergence of philosophy, theology, and science within the framework of 21st-century space exploration. The 17th-century Scientific Revolution created a "Great Schism" between empirical science and metaphysical inquiry — a division this research argues we must now overcome.
-          </p>
-          <p>
-            Tracing philosophical contributions from Konstantin Tsiolkovsky and Carl Sagan through to contemporary space ethics, and examining theological perspectives from Christianity, Buddhism, and Hinduism's cyclical cosmology, the paper makes the case that humanity's enduring success beyond Earth depends on integrating scientific rigour with philosophical wisdom.
-          </p>
-          <div class="key-themes">
-            <span class="theme-pill">Philosophy of Science</span>
-            <span class="theme-pill">Space Ethics</span>
-            <span class="theme-pill">Tsiolkovsky · Sagan</span>
-            <span class="theme-pill">Cosmology</span>
-            <span class="theme-pill">Overview Effect</span>
-            <span class="theme-pill">Non-Duality</span>
-            <span class="theme-pill">Buddhism</span>
-            <span class="theme-pill">Hinduism</span>
-            <span class="theme-pill">Christianity</span>
-          </div>
-          <p style="margin-top:16px;">
-            <strong>Key finding:</strong> Space exploration is both a pursuit of "cosmic truth" and a technology that serves human needs — requiring a collaborative framework in which science clarifies the <em>what</em>, while philosophy and theology provide the <em>why</em> and the ethical compass for humanity's journey beyond Earth.
-          </p>
-          <div class="project-meta">
-            <span>📍 International Space University, Strasbourg</span>
-          </div>
-        </div>
-      </div>
 
-      <!-- Secondary Projects -->
-      <div class="secondary-grid">
-
-        <div class="project-card-small fade-in">
-          <span class="project-icon">🌐</span>
-          <span class="project-tag">Report Head · JTF-Funded · Accepted for IAC 2026</span>
-          <h3>Global Communication Roadmap — Deep Space Exploration</h3>
-          <p>
-            Report Head on a 20-person John Templeton Foundation–sponsored ISU team producing a 15-year, 3-phase, 91-strategy communication roadmap for sustaining global public engagement in deep space human exploration. Paper accepted for presentation at the 77th International Astronautical Congress (IAC 2026), Antalya, Turkey.
-          </p>
-          <div class="project-meta">📍 ISU Strasbourg · Team Project · IAC 2026</div>
-        </div>
-
-        <div class="project-card-small fade-in">
-          <span class="project-icon">🛰️</span>
-          <span class="project-tag">Board Advisory · 2023–Present</span>
-          <h3>SATCOM-Based OTA Architecture for Automotive</h3>
-          <p>
-            As Investor Board Member at Enginecal Private Limited, exploring how SATCOM (Satellite Communication) technology can enable Over-the-Air (OTA) software updates for connected vehicles — a direct application of space infrastructure to the mobility sector, improving safety, efficiency, and vehicle lifecycle management.
-          </p>
-          <div class="project-meta">📍 Enginecal Pvt. Ltd. · India</div>
-        </div>
-
-        <div class="project-card-small fade-in">
-          <span class="project-icon">🏭</span>
-          <span class="project-tag">CEO Transformation · 2014–2020</span>
-          <h3>Rane Brake Lining — Strategic Transformation Programme</h3>
-          <p>
-            A five-year enterprise-wide transformation: scaling revenue 27%, tripling R&D investment as a share of sales, shifting to 40% renewable energy, and winning Japan's Deming Grand Prize for quality. A case study in how patient, values-driven leadership creates lasting institutional change.
-          </p>
-          <div class="project-meta">📍 Rane Brake Lining Ltd. · Chennai, India</div>
-        </div>
-
-        <div class="project-card-small fade-in">
-          <span class="project-icon">🧘</span>
-          <span class="project-tag">Philosophical Study · 2020–2022</span>
-          <h3>Indian Philosophy of Non-Duality (Advaita Vedanta)</h3>
-          <p>
-            A two-year deep-dive into Advaita Vedanta — the Indian philosophy of Non-Duality — at Arsha Vidya Gurukulam. This structured programme in logic, ethics, and metaphysics reshaped how I understand leadership, decision-making, and humanity's place in the cosmos. A foundation now applied to space philosophy research.
-          </p>
-          <div class="project-meta">📍 Arsha Vidya Gurukulam · India</div>
-        </div>
-
-      </div>
-
-      <!-- ISU Academic Projects -->
-      <div class="projects-intro fade-in" style="margin-top: 80px;">
-        <span class="section-label">ISU Strasbourg · 2025–2026</span>
-        <h2>Academic Projects at ISU</h2>
-        <p>Hands-on projects completed during my Master of Space Studies — spanning Earth observation, mission design, systems engineering, space business, and strategic communications. Two papers accepted at IAC 2026.</p>
-      </div>
-
-      <!-- SovereignEye Featured -->
-      <div style="margin-bottom: 48px;">
-        <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 20px;">Space Business &amp; Entrepreneurship</div>
-        <div class="project-card-small fade-in" style="border: 2px solid var(--color-accent); margin-bottom: 0;">
-          <span class="project-icon">🛰️</span>
-          <span class="project-tag" style="background: rgba(74,144,217,0.1); color: var(--color-accent); border: 1px solid rgba(74,144,217,0.3);">Featured · ISU Group Project · Financial Architect</span>
-          <h3>SovereignEye — 16-Satellite ITAR-Free EO Constellation</h3>
-          <p>
-            Designed the financial architecture for a $102M sovereign Earth observation startup concept targeting nations lacking independent satellite intelligence (India, Africa, MENA). Led the full lifecycle cost model using ESA-standard Work Breakdown Structure, developed the Series A funding pitch to India's IN-SPACe agency (₹95 Crore / $11.4M), and structured a dual France-India HQ strategy.
-          </p>
-          <p style="margin-top: 8px;">
-            The constellation comprises 16 operational satellites with hyperspectral, thermal IR, and on-board Edge AI capabilities, delivering real-time processed intelligence in minutes instead of days. Revenue model projects $50M/year by Year 5 with gross margins of 82–96%. Designed the "Verticalization" roadmap including manufacturing in Chennai and operations in Bangalore, with launches via ISRO SSLV and PSLV.
-          </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px;">
-            <span style="font-size:0.72rem; padding:3px 10px; border-radius:16px; background:rgba(74,144,217,0.08); color:var(--color-accent); font-weight:500;">$102M Programme</span>
-            <span style="font-size:0.72rem; padding:3px 10px; border-radius:16px; background:rgba(74,144,217,0.08); color:var(--color-accent); font-weight:500;">16 Satellites</span>
-            <span style="font-size:0.72rem; padding:3px 10px; border-radius:16px; background:rgba(74,144,217,0.08); color:var(--color-accent); font-weight:500;">IN-SPACe RFP</span>
-            <span style="font-size:0.72rem; padding:3px 10px; border-radius:16px; background:rgba(74,144,217,0.08); color:var(--color-accent); font-weight:500;">ITAR-Free</span>
-            <span style="font-size:0.72rem; padding:3px 10px; border-radius:16px; background:rgba(74,144,217,0.08); color:var(--color-accent); font-weight:500;">Edge AI</span>
-          </div>
-          <div class="project-meta" style="margin-top: 16px;">📍 ISU Strasbourg · Space Business &amp; Management Module</div>
-        </div>
-      </div>
-
-      <!-- EO & AI -->
-      <div style="margin-bottom: 40px;">
-        <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 20px;">Earth Observation &amp; AI Analytics</div>
-        <div class="project-card-small fade-in" style="margin-bottom: 0;">
-          <span class="project-icon">🌍</span>
-          <span class="project-tag">GEE · Sentinel-2 · CNN Classification · Team Poster</span>
-          <h3>AI for Earth Observation — Rwanda Vegetation Health</h3>
-          <p>
-            Built a full Google Earth Engine (GEE) workflow for multi-temporal Sentinel-2 vegetation monitoring using CNN-based classification. Produced a GEE change-detection map application for a 5-year Rwanda dataset — visualising land-use and vegetation health changes across the country. Presented as a team digital poster for ISU's AI in Space Poster Session, including a Pan-African GeoAI roadmap for food security applications.
-          </p>
-          <div class="project-meta">📍 ISU Strasbourg · AI in Space Module</div>
-        </div>
-      </div>
-
-      <!-- Systems Engineering & Mission Design -->
-      <div style="margin-bottom: 40px;">
-        <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 20px;">Space Systems Engineering &amp; Mission Design</div>
-        <div class="secondary-grid">
-          <div class="project-card-small fade-in">
-            <span class="project-icon">🛰️</span>
+        <div class="project-card-sm">
+          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/STK_10_GUI.jpg/640px-STK_10_GUI.jpg" alt="STK orbital analysis" />
+          <div class="project-card-sm-body">
             <span class="project-tag">STK · Orbital Mechanics</span>
-            <h3>Orbital Mission Design (STK)</h3>
-            <p>
-              Completed four mission-analysis exercises in STK: foundational orbital workshop, sun-synchronous CubeSat orbit selection, Earth-analogue access modelling, and ocean-coverage AOCS for a concurrent-engineering altimetry mission. Modelled orbital scenarios, eclipse cycles, and access windows for mission-specific geometries. STK Level 1 certified.
-            </p>
-            <div class="project-meta">📍 ISU Strasbourg · STK Level 1 Certified</div>
-          </div>
-
-          <div class="project-card-small fade-in">
-            <span class="project-icon">📡</span>
-            <span class="project-tag">CubeSat · Subsystem Integration</span>
-            <h3>1U CubeSat</h3>
-            <p>
-              Hurricane cloud-monitoring CubeSat prototype. Led end-to-end subsystem integration including payload, OBC, COMMS, ADCS, EPS, and ground station interface. Drafted requirements and completed V&amp;V testing protocols. Designed for a sun-synchronous orbit at 520 km altitude, 97° retrograde inclination.
-            </p>
-            <div class="project-meta">📍 ISU Strasbourg · Hardware Integration &amp; V&amp;V</div>
-          </div>
-
-          <div class="project-card-small fade-in">
-            <span class="project-icon">🚀</span>
-            <span class="project-tag">Cameo Systems Modeler · MBSE</span>
-            <h3>Mars Drone &amp; Robotic Competition</h3>
-            <p>
-              Applied Cameo Systems Modeler for Mars drone design with rover sample collection and return. Developed mass, power, and communications budgets alongside V&amp;V requirements for the mission architecture.
-            </p>
-            <div class="project-meta">📍 ISU Strasbourg · Competition Entry</div>
+            <div class="project-title">Orbital Mission Design (STK)</div>
+            <p class="project-desc">Four mission-analysis exercises: CubeSat orbit selection, Earth-analogue access modelling, ocean-coverage AOCS, and concurrent-engineering altimetry mission. STK Level 1 certified.</p>
+            <div class="project-pills">
+              <span class="pill">STK Certified</span>
+              <span class="pill">Orbital Mechanics</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Astrophysics -->
-      <div style="margin-bottom: 40px;">
-        <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 20px;">Astrophysics &amp; Data Science</div>
-        <div class="project-card-small fade-in" style="margin-bottom: 0;">
-          <span class="project-icon">🔭</span>
-          <span class="project-tag">Gaia DR3 · TOPCAT · Cluster Membership</span>
-          <h3>NGC 2251 — Astronomical Data Mining</h3>
-          <p>
-            Curated open-cluster membership from ESA's Gaia DR3 catalogue: filtering 10,989 cone-search sources down to 212 clean members through astrometric and photometric analysis. Built colour-magnitude diagrams and validated results against published literature using TOPCAT.
-          </p>
-          <div class="project-meta">📍 ISU Strasbourg · Astrophysics Module</div>
-        </div>
-      </div>
-
-      <!-- Space Policy & Strategic Management -->
-      <div style="margin-bottom: 48px;">
-        <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-text-light); margin-bottom: 20px;">Space Policy &amp; Strategic Management</div>
-        <div class="secondary-grid">
-          <div class="project-card-small fade-in">
-            <span class="project-icon">🛡️</span>
-            <span class="project-tag">Governance · €15B Roadmap</span>
-            <h3>European Space Defense Administration</h3>
-            <p>
-              Designed a federal governance framework and a 5-year, €15B annual roadmap consolidating fragmented national security space assets across Europe. Selected as one of two presenters to the faculty panel.
-            </p>
-            <div class="project-meta">📍 ISU Strasbourg · Policy Module</div>
-          </div>
-
-          <div class="project-card-small fade-in">
-            <span class="project-icon">📡</span>
-            <span class="project-tag">Report Head · Accepted for IAC 2026</span>
-            <h3>Strategic Communications — Deep Space</h3>
-            <p>
-              Served as Report Head on a 20-person John Templeton Foundation–sponsored team producing a 15-year, 3-phase, 91-strategy communication roadmap for deep space exploration. Paper accepted for presentation at the International Astronautical Congress (IAC) 2026.
-            </p>
-            <div class="project-meta">📍 ISU Strasbourg · Team Project · IAC 2026</div>
+        <div class="project-card-sm">
+          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Mars_Helicopter_Ingenuity_%28render%29.png/640px-Mars_Helicopter_Ingenuity_%28render%29.png" alt="Mars helicopter concept" />
+          <div class="project-card-sm-body">
+            <span class="project-tag">MBSE · Cameo Systems Modeler</span>
+            <div class="project-title">Mars Drone &amp; Robotic Competition</div>
+            <p class="project-desc">Applied Cameo Systems Modeler for Mars drone design with rover sample collection and return. Developed mass, power, and communications budgets alongside V&amp;V requirements.</p>
+            <div class="project-pills">
+              <span class="pill">MBSE</span>
+              <span class="pill">Mars</span>
+              <span class="pill">Cameo</span>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
-  </section>
+        <div class="project-card-sm">
+          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/NGC_2251_DSS.jpg/640px-NGC_2251_DSS.jpg" alt="NGC 2251 star cluster" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/640px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg';" />
+          <div class="project-card-sm-body">
+            <span class="project-tag">Astrophysics · Gaia DR3</span>
+            <div class="project-title">NGC 2251 — Astronomical Data Mining</div>
+            <p class="project-desc">Curated open-cluster membership from ESA's Gaia DR3: 10,989 cone-search sources filtered to 212 clean members. Colour-magnitude diagrams validated against literature using TOPCAT.</p>
+            <div class="project-pills">
+              <span class="pill">Gaia DR3</span>
+              <span class="pill">TOPCAT</span>
+            </div>
+          </div>
+        </div>
 
-  <!-- Philosophy Quotes -->
-  <section class="quotes-section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <span class="section-label" style="color: var(--color-gold);">Philosophy &amp; Space</span>
-        <h2 style="color: #fff;">Words That Shape My Thinking</h2>
-      </div>
-      <div class="quotes-grid">
-        <div class="philosophy-quote fade-in">
-          <p class="q-text">"Man must rise above the Earth — to the top of the atmosphere and beyond — for only then will he fully understand the world in which he lives."</p>
-          <span class="q-author">— Socrates</span>
-        </div>
-        <div class="philosophy-quote fade-in">
-          <p class="q-text">"The cosmos is within us. We are made of star-stuff. We are a way for the universe to know itself."</p>
-          <span class="q-author">— Carl Sagan</span>
-        </div>
-        <div class="philosophy-quote fade-in">
-          <p class="q-text">"Science without religion is lame, and religion without science is blind."</p>
-          <span class="q-author">— Albert Einstein</span>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <!-- EO & POLICY -->
+  <section class="section">
     <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">VL<span>.</span></div>
-        <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <span class="section-number">04 — Earth Observation &amp; Space Policy</span>
+      <h2 class="section-title">AI, Governance &amp; Strategy</h2>
+
+      <div class="projects-grid-small">
+
+        <div class="project-card-sm">
+          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Rwanda_satellite_image.jpg/640px-Rwanda_satellite_image.jpg" alt="Rwanda satellite imagery" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/640px-Camponotus_flavomarginatus_ant.jpg'; this.alt='Earth observation';" />
+          <div class="project-card-sm-body">
+            <span class="project-tag">GEE · Sentinel-2 · CNN</span>
+            <div class="project-title">AI for Earth Observation — Rwanda</div>
+            <p class="project-desc">Built a full Google Earth Engine workflow for multi-temporal Sentinel-2 vegetation monitoring using CNN-based classification. 5-year change-detection map. Pan-African GeoAI roadmap for food security.</p>
+            <div class="project-pills">
+              <span class="pill">GEE</span>
+              <span class="pill">Sentinel-2</span>
+              <span class="pill">CNN</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card-sm">
+          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/ESA_headquarters_in_Paris%2C_France.JPG/640px-ESA_headquarters_in_Paris%2C_France.JPG" alt="European space governance" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/European_Parliament_Strasbourg_Hemicycle_-_Diliff.jpg/640px-European_Parliament_Strasbourg_Hemicycle_-_Diliff.jpg';" />
+          <div class="project-card-sm-body">
+            <span class="project-tag">Governance · Defence · Policy</span>
+            <div class="project-title">European Space Defense Administration</div>
+            <p class="project-desc">Designed a federal governance framework and &euro;15B annual roadmap consolidating fragmented European space security assets into a unified command structure. Selected as one of two faculty panel presenters.</p>
+            <div class="project-pills">
+              <span class="pill">&euro;15B Roadmap</span>
+              <span class="pill">Dual-Use</span>
+              <span class="pill">Policy</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="footer-bottom">
-        <p>© 2026 Vinay Lakshman. All rights reserved.</p>
-        <span class="footer-quote">"The cosmos is within us. We are made of star-stuff." — Carl Sagan</span>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL PROJECTS -->
+  <section class="section">
+    <div class="container">
+      <span class="section-number">05 — Professional &amp; Personal</span>
+      <h2 class="section-title">Industry &amp; Philosophy</h2>
+
+      <div class="projects-grid-small">
+
+        <div class="project-card-sm">
+          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brake_disc_and_caliper.jpg/640px-Brake_disc_and_caliper.jpg" alt="Automotive braking system" onerror="this.style.display='none';" />
+          <div class="project-card-sm-body">
+            <span class="project-tag">CEO Transformation · 2014–2020</span>
+            <div class="project-title">Rane Brake Lining — Strategic Transformation</div>
+            <p class="project-desc">Five-year enterprise transformation: revenue &euro;44M to &euro;56M, doubled profitability, tripled R&amp;D investment, 40% renewable energy. Deming Grand Prize &amp; Great Place to Work certified.</p>
+            <div class="project-pills">
+              <span class="pill">P&amp;L Leadership</span>
+              <span class="pill">Deming Prize</span>
+              <span class="pill">ESG</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card-sm">
+          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bhagavad_Gita%2C_19th_century.jpg/640px-Bhagavad_Gita%2C_19th_century.jpg" alt="Bhagavad Gita manuscript" onerror="this.style.display='none';" />
+          <div class="project-card-sm-body">
+            <span class="project-tag">Philosophy · 2020–2022</span>
+            <div class="project-title">Indian Philosophy of Non-Duality (Advaita Vedanta)</div>
+            <p class="project-desc">Two-year immersion at Arsha Vidya Gurukulam in Advaita Vedanta — formal logic, ethics, and systems-thinking. Foundation for space philosophy research and values-based leadership.</p>
+            <div class="project-pills">
+              <span class="pill">Vedanta</span>
+              <span class="pill">Bhagavad Gita</span>
+              <span class="pill">Philosophy</span>
+            </div>
+          </div>
+        </div>
+
       </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 Vinay Lakshman &middot; All rights reserved
+      <span>"The cosmos is within us. We are made of star-stuff." &mdash; Carl Sagan</span>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>
