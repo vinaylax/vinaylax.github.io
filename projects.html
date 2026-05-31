@@ -39,12 +39,14 @@
     .section-number { font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px; display: block; }
     .section-title { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 600; color: var(--text); margin-bottom: 28px; }
 
-    .project-row { display: grid; grid-template-columns: 280px 1fr; gap: 28px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 20px; transition: all 0.2s; }
+    /* Project row with visual panel */
+    .project-row { display: grid; grid-template-columns: 260px 1fr; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 20px; transition: all 0.2s; }
     .project-row:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); transform: translateY(-2px); }
     .project-row.featured { border-left: 4px solid var(--accent-blue); }
     .project-row.iac { border-left: 4px solid var(--gold); }
-    .project-img { width: 100%; height: 100%; min-height: 200px; object-fit: cover; display: block; }
-    .project-body { padding: 24px 28px 24px 0; display: flex; flex-direction: column; justify-content: center; }
+    .project-visual { display: flex; align-items: center; justify-content: center; min-height: 200px; font-size: 3.5rem; position: relative; overflow: hidden; }
+    .project-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .project-body { padding: 24px 28px; display: flex; flex-direction: column; justify-content: center; }
     .project-tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; display: block; }
     .project-tag.gold { color: var(--gold); }
     .project-tag.blue { color: var(--accent-blue); }
@@ -56,19 +58,33 @@
     .project-links { display: flex; gap: 14px; margin-top: 10px; }
     .project-links a { font-size: 0.8rem; font-weight: 600; }
 
-    /* Small cards for secondary projects */
+    /* Small cards */
     .projects-grid-small { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
     .project-card-sm { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.2s; }
     .project-card-sm:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); transform: translateY(-2px); }
-    .project-card-sm-img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .project-card-sm-visual { height: 160px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; overflow: hidden; }
+    .project-card-sm-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .project-card-sm-body { padding: 20px; }
+
+    /* Color themes for visuals */
+    .vis-seti { background: linear-gradient(135deg, #1a2a4a, #2c4a6e); color: rgba(255,255,255,0.3); }
+    .vis-comms { background: linear-gradient(135deg, #0f2847, #1a3a5c); color: rgba(255,255,255,0.3); }
+    .vis-satellite { background: linear-gradient(135deg, #2c3e50, #4a6fa0); color: rgba(255,255,255,0.3); }
+    .vis-cubesat { background: linear-gradient(135deg, #1a3a2a, #2c5a4a); color: rgba(255,255,255,0.3); }
+    .vis-stk { background: linear-gradient(135deg, #2a1a4a, #4a2c6e); color: rgba(255,255,255,0.3); }
+    .vis-mars { background: linear-gradient(135deg, #5a2a1a, #8a4a2c); color: rgba(255,255,255,0.3); }
+    .vis-astro { background: linear-gradient(135deg, #0a0a2a, #1a1a4a); color: rgba(255,255,255,0.3); }
+    .vis-eo { background: linear-gradient(135deg, #1a4a2a, #2c6a4a); color: rgba(255,255,255,0.3); }
+    .vis-defense { background: linear-gradient(135deg, #3a3a3a, #5a5a5a); color: rgba(255,255,255,0.3); }
+    .vis-auto { background: linear-gradient(135deg, #4a3a1a, #6a5a2c); color: rgba(255,255,255,0.3); }
+    .vis-philosophy { background: linear-gradient(135deg, #6a4a2a, #8a6a4a); color: rgba(255,255,255,0.3); }
 
     footer { padding: 24px 0; font-size: 0.78rem; color: var(--text-muted); text-align: center; border-top: 1px solid var(--border); }
     footer span { font-family: var(--font-serif); font-style: italic; display: block; margin-top: 6px; color: var(--text-secondary); }
 
     @media (max-width: 768px) {
       .project-row { grid-template-columns: 1fr; }
-      .project-body { padding: 20px; }
+      .project-visual { min-height: 160px; }
       .projects-grid-small { grid-template-columns: 1fr; }
     }
   </style>
@@ -94,74 +110,70 @@
     </div>
   </div>
 
-  <!-- FEATURED: IAC Paper -->
+  <!-- IAC Paper -->
   <section class="section">
     <div class="container">
       <span class="section-number">01 — Accepted at IAC 2026</span>
       <h2 class="section-title">Individual Research</h2>
 
       <div class="project-row iac">
-        <img class="project-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Arecibo_Observatory_Aerial_View.jpg/640px-Arecibo_Observatory_Aerial_View.jpg" alt="Radio telescope — SETI research" />
+        <div class="project-visual vis-seti">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Arecibo_Observatory_Aerial_View.jpg/640px-Arecibo_Observatory_Aerial_View.jpg" alt="SETI" onerror="this.remove();" />
+        </div>
         <div class="project-body">
-          <span class="project-tag gold">IAC 2026 · 10-min Oral Presentation · SETI Symposium</span>
+          <span class="project-tag gold">IAC 2026 &middot; 10-min Oral Presentation &middot; SETI Symposium</span>
           <div class="project-title">Philosophy, Theology, and the Search for Extraterrestrial Intelligence: Ethical and Cultural Frameworks for a Post-Detection World</div>
-          <p class="project-desc">Accepted at the 77th International Astronautical Congress (Antalya, Turkey, October 2026). 55th IAA SETI Symposium — Session: SETI and Society. An interdisciplinary study examining how philosophical and theological frameworks should guide humanity's response to the detection of extraterrestrial intelligence.</p>
+          <p class="project-desc">Accepted at the 77th IAC (Antalya, Turkey, October 2026). 55th IAA SETI Symposium — Session: SETI and Society. An interdisciplinary study examining how philosophical and theological frameworks should guide humanity's response to the detection of extraterrestrial intelligence.</p>
           <div class="project-pills">
-            <span class="pill gold">IAC 2026</span>
-            <span class="pill gold">Oral Presentation</span>
-            <span class="pill gold">SETI</span>
-            <span class="pill gold">Philosophy</span>
+            <span class="pill gold">IAC 2026</span><span class="pill gold">Oral Presentation</span><span class="pill gold">SETI</span><span class="pill gold">Philosophy</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURED: Deep Space Comms + SovereignEye -->
+  <!-- Featured ISU -->
   <section class="section">
     <div class="container">
       <span class="section-number">02 — Featured ISU Projects</span>
       <h2 class="section-title">Team Projects &amp; Space Business</h2>
 
       <div class="project-row iac">
-        <img class="project-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Canberra_Deep_Space_Communication_Complex_-_panoramio.jpg/640px-Canberra_Deep_Space_Communication_Complex_-_panoramio.jpg" alt="Deep space antenna" />
+        <div class="project-visual vis-comms">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Canberra_Deep_Space_Communication_Complex_-_panoramio.jpg/640px-Canberra_Deep_Space_Communication_Complex_-_panoramio.jpg" alt="Deep Space Network" onerror="this.remove();" />
+        </div>
         <div class="project-body">
-          <span class="project-tag gold">IAC 2026 · Report Head · JTF-Funded</span>
+          <span class="project-tag gold">IAC 2026 &middot; Report Head &middot; JTF-Funded</span>
           <div class="project-title">Global Communication Roadmap — Deep Space Exploration</div>
-          <p class="project-desc">Report Head on a 20-person John Templeton Foundation–sponsored ISU team producing a 15-year, 3-phase, 91-strategy communication roadmap for sustaining global public engagement in deep space human exploration. Paper accepted at IAC 2026.</p>
+          <p class="project-desc">Report Head on a 20-person John Templeton Foundation-sponsored ISU team producing a 15-year, 3-phase, 91-strategy communication roadmap for sustaining global public engagement in deep space human exploration. Paper accepted at IAC 2026.</p>
           <div class="project-links">
             <a href="https://drive.google.com/file/d/1ESlcQaj-u0k48vXAgawEjD2Z5l1EG3up/view" target="_blank">Report &rarr;</a>
             <a href="https://roadmap-project-five.vercel.app/" target="_blank">Interactive Roadmap &rarr;</a>
             <a href="https://www.youtube.com/watch?v=nrWKf-AFkLQ" target="_blank">Video &rarr;</a>
           </div>
           <div class="project-pills">
-            <span class="pill gold">IAC 2026</span>
-            <span class="pill gold">Report Head</span>
-            <span class="pill gold">JTF Grant</span>
+            <span class="pill gold">IAC 2026</span><span class="pill gold">Report Head</span><span class="pill gold">JTF Grant</span>
           </div>
         </div>
       </div>
 
       <div class="project-row featured">
-        <img class="project-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/DigitalGlobe_-_satellite.jpg/640px-DigitalGlobe_-_satellite.jpg" alt="Earth observation satellite" />
+        <div class="project-visual vis-satellite">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/600px-The_Earth_seen_from_Apollo_17.jpg" alt="Earth from space" onerror="this.remove();" />
+        </div>
         <div class="project-body">
-          <span class="project-tag blue">Space Business · Financial Architect</span>
+          <span class="project-tag blue">Space Business &middot; Financial Architect</span>
           <div class="project-title">SovereignEye — 16-Satellite ITAR-Free EO Constellation</div>
-          <p class="project-desc">Designed the financial architecture for a $102M sovereign Earth observation startup. Led the full lifecycle cost model (ESA WBS), Series A pitch to IN-SPACe (&#8377;95 Cr), and dual France-India HQ strategy. 16 satellites with hyperspectral, thermal IR, and on-board Edge AI. Revenue projection: $50M/year by Year 5, gross margins 82–96%.</p>
+          <p class="project-desc">Designed the financial architecture for a $102M sovereign Earth observation startup. Led the full lifecycle cost model (ESA WBS), Series A pitch to IN-SPACe (&#8377;95 Cr), and dual France-India HQ strategy. 16 satellites with hyperspectral, thermal IR, and on-board Edge AI. Revenue: $50M/year by Year 5.</p>
           <div class="project-pills">
-            <span class="pill">$102M</span>
-            <span class="pill">16 Satellites</span>
-            <span class="pill">IN-SPACe</span>
-            <span class="pill">ITAR-Free</span>
-            <span class="pill">Edge AI</span>
+            <span class="pill">$102M</span><span class="pill">16 Satellites</span><span class="pill">IN-SPACe</span><span class="pill">ITAR-Free</span><span class="pill">Edge AI</span>
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- SYSTEMS ENGINEERING & MISSION DESIGN -->
+  <!-- Systems Engineering -->
   <section class="section">
     <div class="container">
       <span class="section-number">03 — Systems Engineering &amp; Mission Design</span>
@@ -170,56 +182,50 @@
       <div class="projects-grid-small">
 
         <div class="project-card-sm">
-          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ISS-56_CubeSats_deployed_from_the_ISS_%282%29.jpg/640px-ISS-56_CubeSats_deployed_from_the_ISS_%282%29.jpg" alt="CubeSats deployed from ISS" />
+          <div class="project-card-sm-visual vis-cubesat">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/ISS-56_CubeSats_deployed_from_the_ISS_%282%29.jpg/640px-ISS-56_CubeSats_deployed_from_the_ISS_%282%29.jpg" alt="CubeSats" onerror="this.remove();" />
+          </div>
           <div class="project-card-sm-body">
-            <span class="project-tag">CubeSat · Subsystem Integration · V&amp;V</span>
+            <span class="project-tag">CubeSat &middot; V&amp;V &middot; Hardware</span>
             <div class="project-title">1U CubeSat</div>
-            <p class="project-desc">Hurricane cloud-monitoring prototype. End-to-end integration: payload, OBC, COMMS, ADCS, EPS, ground station. V&amp;V completed. Sun-synchronous orbit at 520 km, 97° retrograde.</p>
-            <div class="project-pills">
-              <span class="pill">CubeSat</span>
-              <span class="pill">V&amp;V</span>
-              <span class="pill">Hardware</span>
-            </div>
+            <p class="project-desc">Hurricane cloud-monitoring prototype. End-to-end integration: payload, OBC, COMMS, ADCS, EPS, ground station. V&amp;V completed. SSO at 520 km.</p>
+            <div class="project-pills"><span class="pill">CubeSat</span><span class="pill">V&amp;V</span><span class="pill">Hardware</span></div>
           </div>
         </div>
 
         <div class="project-card-sm">
-          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/STK_10_GUI.jpg/640px-STK_10_GUI.jpg" alt="STK orbital analysis" />
+          <div class="project-card-sm-visual vis-stk">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Orbital_Debris_Trackable_2009.png/640px-Orbital_Debris_Trackable_2009.png" alt="Orbital mechanics" onerror="this.remove();" />
+          </div>
           <div class="project-card-sm-body">
-            <span class="project-tag">STK · Orbital Mechanics</span>
+            <span class="project-tag">STK &middot; Orbital Mechanics</span>
             <div class="project-title">Orbital Mission Design (STK)</div>
-            <p class="project-desc">Four mission-analysis exercises: CubeSat orbit selection, Earth-analogue access modelling, ocean-coverage AOCS, and concurrent-engineering altimetry mission. STK Level 1 certified.</p>
-            <div class="project-pills">
-              <span class="pill">STK Certified</span>
-              <span class="pill">Orbital Mechanics</span>
-            </div>
+            <p class="project-desc">Four mission-analysis exercises: CubeSat orbit selection, Earth-analogue access, ocean-coverage AOCS, concurrent engineering. STK Level 1 certified.</p>
+            <div class="project-pills"><span class="pill">STK Certified</span><span class="pill">Orbital Mechanics</span></div>
           </div>
         </div>
 
         <div class="project-card-sm">
-          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Mars_Helicopter_Ingenuity_%28render%29.png/640px-Mars_Helicopter_Ingenuity_%28render%29.png" alt="Mars helicopter concept" />
+          <div class="project-card-sm-visual vis-mars">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/600px-OSIRIS_Mars_true_color.jpg" alt="Mars" onerror="this.remove();" />
+          </div>
           <div class="project-card-sm-body">
-            <span class="project-tag">MBSE · Cameo Systems Modeler</span>
+            <span class="project-tag">MBSE &middot; Cameo Systems Modeler</span>
             <div class="project-title">Mars Drone &amp; Robotic Competition</div>
-            <p class="project-desc">Applied Cameo Systems Modeler for Mars drone design with rover sample collection and return. Developed mass, power, and communications budgets alongside V&amp;V requirements.</p>
-            <div class="project-pills">
-              <span class="pill">MBSE</span>
-              <span class="pill">Mars</span>
-              <span class="pill">Cameo</span>
-            </div>
+            <p class="project-desc">Cameo Systems Modeler for Mars drone design. Rover sample collection and return. Mass, power, comms budgets and V&amp;V requirements.</p>
+            <div class="project-pills"><span class="pill">MBSE</span><span class="pill">Mars</span><span class="pill">Cameo</span></div>
           </div>
         </div>
 
         <div class="project-card-sm">
-          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/NGC_2251_DSS.jpg/640px-NGC_2251_DSS.jpg" alt="NGC 2251 star cluster" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/640px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg';" />
+          <div class="project-card-sm-visual vis-astro">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/600px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg" alt="NGC 2251" onerror="this.remove();" />
+          </div>
           <div class="project-card-sm-body">
-            <span class="project-tag">Astrophysics · Gaia DR3</span>
+            <span class="project-tag">Astrophysics &middot; Gaia DR3</span>
             <div class="project-title">NGC 2251 — Astronomical Data Mining</div>
-            <p class="project-desc">Curated open-cluster membership from ESA's Gaia DR3: 10,989 cone-search sources filtered to 212 clean members. Colour-magnitude diagrams validated against literature using TOPCAT.</p>
-            <div class="project-pills">
-              <span class="pill">Gaia DR3</span>
-              <span class="pill">TOPCAT</span>
-            </div>
+            <p class="project-desc">Open-cluster membership from ESA's Gaia DR3: 10,989 sources filtered to 212 clean members. Colour-magnitude diagrams validated against literature using TOPCAT.</p>
+            <div class="project-pills"><span class="pill">Gaia DR3</span><span class="pill">TOPCAT</span></div>
           </div>
         </div>
 
@@ -227,7 +233,7 @@
     </div>
   </section>
 
-  <!-- EO & POLICY -->
+  <!-- EO & Policy -->
   <section class="section">
     <div class="container">
       <span class="section-number">04 — Earth Observation &amp; Space Policy</span>
@@ -236,30 +242,26 @@
       <div class="projects-grid-small">
 
         <div class="project-card-sm">
-          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Rwanda_satellite_image.jpg/640px-Rwanda_satellite_image.jpg" alt="Rwanda satellite imagery" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/640px-Camponotus_flavomarginatus_ant.jpg'; this.alt='Earth observation';" />
+          <div class="project-card-sm-visual vis-eo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/600px-The_Earth_seen_from_Apollo_17.jpg" alt="Earth observation" onerror="this.remove();" />
+          </div>
           <div class="project-card-sm-body">
-            <span class="project-tag">GEE · Sentinel-2 · CNN</span>
+            <span class="project-tag">GEE &middot; Sentinel-2 &middot; CNN</span>
             <div class="project-title">AI for Earth Observation — Rwanda</div>
-            <p class="project-desc">Built a full Google Earth Engine workflow for multi-temporal Sentinel-2 vegetation monitoring using CNN-based classification. 5-year change-detection map. Pan-African GeoAI roadmap for food security.</p>
-            <div class="project-pills">
-              <span class="pill">GEE</span>
-              <span class="pill">Sentinel-2</span>
-              <span class="pill">CNN</span>
-            </div>
+            <p class="project-desc">Built a full Google Earth Engine workflow for multi-temporal Sentinel-2 vegetation monitoring using CNN classification. 5-year change-detection map. Pan-African GeoAI roadmap for food security.</p>
+            <div class="project-pills"><span class="pill">GEE</span><span class="pill">Sentinel-2</span><span class="pill">CNN</span></div>
           </div>
         </div>
 
         <div class="project-card-sm">
-          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/ESA_headquarters_in_Paris%2C_France.JPG/640px-ESA_headquarters_in_Paris%2C_France.JPG" alt="European space governance" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/European_Parliament_Strasbourg_Hemicycle_-_Diliff.jpg/640px-European_Parliament_Strasbourg_Hemicycle_-_Diliff.jpg';" />
+          <div class="project-card-sm-visual vis-defense">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/European_Parliament_Strasbourg_Hemicycle_-_Diliff.jpg/640px-European_Parliament_Strasbourg_Hemicycle_-_Diliff.jpg" alt="European governance" onerror="this.remove();" />
+          </div>
           <div class="project-card-sm-body">
-            <span class="project-tag">Governance · Defence · Policy</span>
+            <span class="project-tag">Governance &middot; Defence &middot; Policy</span>
             <div class="project-title">European Space Defense Administration</div>
-            <p class="project-desc">Designed a federal governance framework and &euro;15B annual roadmap consolidating fragmented European space security assets into a unified command structure. Selected as one of two faculty panel presenters.</p>
-            <div class="project-pills">
-              <span class="pill">&euro;15B Roadmap</span>
-              <span class="pill">Dual-Use</span>
-              <span class="pill">Policy</span>
-            </div>
+            <p class="project-desc">Designed a federal governance framework and &euro;15B annual roadmap consolidating fragmented European space security assets into a unified command structure. Faculty panel presenter.</p>
+            <div class="project-pills"><span class="pill">&euro;15B Roadmap</span><span class="pill">Dual-Use</span><span class="pill">Policy</span></div>
           </div>
         </div>
 
@@ -267,7 +269,7 @@
     </div>
   </section>
 
-  <!-- PROFESSIONAL PROJECTS -->
+  <!-- Professional -->
   <section class="section">
     <div class="container">
       <span class="section-number">05 — Professional &amp; Personal</span>
@@ -276,30 +278,26 @@
       <div class="projects-grid-small">
 
         <div class="project-card-sm">
-          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brake_disc_and_caliper.jpg/640px-Brake_disc_and_caliper.jpg" alt="Automotive braking system" onerror="this.style.display='none';" />
+          <div class="project-card-sm-visual vis-auto">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brake_disc_and_caliper.jpg/640px-Brake_disc_and_caliper.jpg" alt="Automotive" onerror="this.remove();" />
+          </div>
           <div class="project-card-sm-body">
-            <span class="project-tag">CEO Transformation · 2014–2020</span>
+            <span class="project-tag">CEO Transformation &middot; 2014-2020</span>
             <div class="project-title">Rane Brake Lining — Strategic Transformation</div>
-            <p class="project-desc">Five-year enterprise transformation: revenue &euro;44M to &euro;56M, doubled profitability, tripled R&amp;D investment, 40% renewable energy. Deming Grand Prize &amp; Great Place to Work certified.</p>
-            <div class="project-pills">
-              <span class="pill">P&amp;L Leadership</span>
-              <span class="pill">Deming Prize</span>
-              <span class="pill">ESG</span>
-            </div>
+            <p class="project-desc">Five-year enterprise transformation: revenue &euro;44M to &euro;56M, doubled profitability, tripled R&amp;D, 40% renewable energy. Deming Grand Prize &amp; Great Place to Work.</p>
+            <div class="project-pills"><span class="pill">P&amp;L Leadership</span><span class="pill">Deming Prize</span><span class="pill">ESG</span></div>
           </div>
         </div>
 
         <div class="project-card-sm">
-          <img class="project-card-sm-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bhagavad_Gita%2C_19th_century.jpg/640px-Bhagavad_Gita%2C_19th_century.jpg" alt="Bhagavad Gita manuscript" onerror="this.style.display='none';" />
+          <div class="project-card-sm-visual vis-philosophy">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bhagavad_Gita%2C_19th_century.jpg/640px-Bhagavad_Gita%2C_19th_century.jpg" alt="Bhagavad Gita" onerror="this.remove();" />
+          </div>
           <div class="project-card-sm-body">
-            <span class="project-tag">Philosophy · 2020–2022</span>
+            <span class="project-tag">Philosophy &middot; 2020-2022</span>
             <div class="project-title">Indian Philosophy of Non-Duality (Advaita Vedanta)</div>
             <p class="project-desc">Two-year immersion at Arsha Vidya Gurukulam in Advaita Vedanta — formal logic, ethics, and systems-thinking. Foundation for space philosophy research and values-based leadership.</p>
-            <div class="project-pills">
-              <span class="pill">Vedanta</span>
-              <span class="pill">Bhagavad Gita</span>
-              <span class="pill">Philosophy</span>
-            </div>
+            <div class="project-pills"><span class="pill">Vedanta</span><span class="pill">Bhagavad Gita</span><span class="pill">Philosophy</span></div>
           </div>
         </div>
 
